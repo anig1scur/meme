@@ -125,7 +125,7 @@ export default function Index() {
           data-bg-color="#5F6F52"
           className="f box1"
         >
-          1
+          我
         </div>
         <div
           data-scroll="top bottom center center"
@@ -133,16 +133,15 @@ export default function Index() {
           data-bg-color="#A9B388"
           className="f box2"
         >
-          2
+          爱
         </div>
-        <Box />
         <div
           data-scroll="top bottom center center"
           data-bg-img="https://cdn.pixabay.com/photo/2023/10/18/10/28/bird-8323639_640.jpg"
           data-bg-color="#B99470"
           className="f box3"
         >
-          3
+          迷
         </div>
         <div
           data-scroll="top bottom center center"
@@ -151,7 +150,7 @@ export default function Index() {
           className="f box4"
           data-text-color="#665"
         >
-          4
+          因
         </div>
       </div>
     </div>
