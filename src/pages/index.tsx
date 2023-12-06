@@ -35,7 +35,7 @@ function Box() {
   return (
     <div
       data-scroll="top bottom center center"
-      data-bg-img="https://cdn.pixabay.com/photo/2023/10/01/16/01/rose-8287698_640.jpg"
+      data-bg-img="https://tse4-mm.cn.bing.net/th/id/OIP-C.Fh5UaCuHggAYjI3yOkhwyAHaHE?w=209&h=201&c=7&r=0&o=5&dpr=1.3&pid=1.7"
       data-bg-color="#574f7d"
       className="align-items-center relative flex min-h-screen w-screen flex-col justify-center text-center text-8xl"
       ref={ref}
@@ -121,7 +121,7 @@ export default function Index() {
       <div className="page-content">
         <div
           data-scroll="top bottom center center"
-          data-bg-img="https://cdn.pixabay.com/photo/2020/04/07/02/02/station-5011733_640.png"
+          data-bg-img="https://i.imgur.com/KJqbepD_d.webp?maxwidth=520&shape=thumb&fidelity=high"
           data-bg-color="#5F6F52"
           className="f box1"
         >
@@ -129,7 +129,7 @@ export default function Index() {
         </div>
         <div
           data-scroll="top bottom center center"
-          data-bg-img="https://cdn.pixabay.com/photo/2023/11/03/11/59/viper-8362870_640.jpg"
+          data-bg-img="https://i.pinimg.com/236x/c5/c2/c9/c5c2c916313dc5b58cfdff3635c1134d.jpg"
           data-bg-color="#A9B388"
           className="f box2"
         >
@@ -137,7 +137,7 @@ export default function Index() {
         </div>
         <div
           data-scroll="top bottom center center"
-          data-bg-img="https://cdn.pixabay.com/photo/2023/10/18/10/28/bird-8323639_640.jpg"
+          data-bg-img="https://i.imgflip.com/87r5tz.jpg"
           data-bg-color="#B99470"
           className="f box3"
         >
@@ -145,10 +145,10 @@ export default function Index() {
         </div>
         <div
           data-scroll="top bottom center center"
-          data-bg-img="https://cdn.pixabay.com/photo/2023/09/01/22/16/keyboard-8227845_640.png"
+          data-bg-img="https://tse2-mm.cn.bing.net/th/id/OIP-C.95Q22yqJ7r04Oqrcdvd3TAHaEJ?w=297&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
           data-bg-color="#FEFAE0"
-          className="f box4"
           data-text-color="#665"
+          className="f box4"
         >
           因
         </div>
