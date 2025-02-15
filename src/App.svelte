@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Home from "./routes/Home.svelte";
-	import NoMatch from "./elements/NoMatch.svelte";
+	import NoMatch from "./components/NoMatch.svelte";
 
 	import { Router, Route } from "svelte-routing";
 	import { onMount } from "svelte";

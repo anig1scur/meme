@@ -5,4 +5,10 @@ module.exports = {
         "./index.html",
         "./src/**/*.{svelte,js,ts,jsx,tsx}",
     ],
+    theme: {
+      fontFamily: {
+        'routedgothic': ['"RoutedGothic"', ],
+        'icon': ['"Icon"', ],
+      }
+    }
 }

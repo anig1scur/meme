@@ -1,11 +1,12 @@
 import './app.css';
 import App from './App.svelte';
+import { mount } from 'svelte';
 
 window.addEventListener("contextmenu", (e: MouseEvent) => {
 	import.meta.env.PROD ? e.preventDefault() : void 0;
 });
 
-const app = new App({
+const app = mount(App, {
 	target: document.body,
 });
 

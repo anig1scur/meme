@@ -12,7 +12,6 @@
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.1",
-    "svelte": "^4.2.19",
     "tailwindcss": "^3.4.17",
     "terser": "^5.38.1",
     "vite": "^5.4.14",
@@ -21,7 +20,9 @@
   "dependencies": {
     "cssnano": "^7.0.6",
     "dotenv": "^16.4.7",
+    "gsap": "^3.12.7",
     "sass": "^1.84.0",
+    "svelte": "^5.20.1",
     "svelte-routing": "^2.13.0"
   }
 }

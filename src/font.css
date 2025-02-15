@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "RoutedGothic";
+  src: url("./assets/fonts/RoutedGothic.woff");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RoutedGothic";
+  src: url("./assets/fonts/RoutedGothic-HalfItalic.woff");
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: "Icon";
+  src: url("./assets/fonts/IconFont-Regular.woff2");
+  font-style: normal;
+}

@@ -1,5 +1,5 @@
 <script lang="js">
-    import NoMatch from "../elements/NoMatch.svelte";
+    import NoMatch from "../components/NoMatch.svelte";
 </script>
 
 <!-- NoMatch -->
