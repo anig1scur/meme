@@ -1,12 +1,10 @@
 <script lang="js">
-    import Header from "../components/Header.svelte";
-    import Footer from "../components/Footer.svelte";
+  import Header from '../components/Header.svelte';
+  import Footer from '../components/Footer.svelte';
 
-    import { Home } from "../components/home";
+  import {Home} from '../components/home';
 </script>
 
-<!-- Home -->
-    <Header />
-    <Home />
-    <Footer />
-<!-- Home end -->
+<Header />
+<Home />
+<Footer />
