@@ -26,3 +26,10 @@ I love meme.
 8. [迷因專題](https://dq.yam.com/post/13085)
 9. [10 幅全球爆紅迷因圖意思](https://www.madamefigaro.hk/art/meme-%e8%bf%b7%e5%9b%a0-110213/10/)
 10. [the history of memes oc](https://www.reddit.com/r/memes/comments/o7x2fx/the_history_of_memes_oc/)
+
+
+## Data Visualization View
+
+1. google trends
+   1. https://trends.google.com/trends/explore?date=all&q=distracted%20boyfriend
+2. 
