@@ -1,15 +1,15 @@
-
+import os
+import json
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-import os
-import json
 
 
 BASE = os.path.join(os.path.dirname(__file__), "../public/top50")
 
 input_csv = os.path.join(BASE, "memes.csv")
 IMG_DIR = os.path.join(BASE, "images")
+OUTPUT_JSON = os.path.join(BASE, "meme_details.json")
 
 
 def scrape_meme_details(meme_name, url):
@@ -46,6 +46,11 @@ def scrape_meme_details(meme_name, url):
     # Download image and save it locally
     img_response = requests.get(img_url)
     img_name = f"{meme_id}.jpg"
+    file_path = os.path.join(IMG_DIR, img_name)
+    if os.path.exists(file_path):
+        print(f"Image {img_name} already exists. Skipping download.")
+        return meme_name, img_name, meme_type, year, origin
+
     with open(os.path.join(IMG_DIR, img_name), "wb") as img_file:
         img_file.write(img_response.content)
 
@@ -76,7 +81,7 @@ for index, row in df.iterrows():
     )
 
 # Save the data to a JSON file
-with open(os.path.join(BASE, "meme_details.json"), "w", encoding="utf-8") as json_file:
+with open(OUTPUT_JSON, "w", encoding="utf-8") as json_file:
     json.dump(meme_data, json_file, ensure_ascii=False, indent=4)
 
-print("Scraping and saving to meme_details.json completed!")
+print("Scraping and saving to meme_details.json completed")
