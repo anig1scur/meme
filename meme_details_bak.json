@@ -1,0 +1,372 @@
+[
+    {
+        "name": "Distracted Boyfriend",
+        "image": "distracted-boyfriend.jpg",
+        "type": "Image Macro, Photoshop",
+        "year": "2017",
+        "origin": "Facebook",
+        "desc": "A stock photo from 2015 depicting a man looking at another woman while holding his partner's hand.",
+        "impact": "Used to represent infidelity or distraction, it became a widely recognized meme symbolizing various forms of temptation.",
+        "link": "https://knowyourmeme.com/memes/distracted-boyfriend"
+    },
+    {
+        "name": "Doge",
+        "image": "doge.jpg",
+        "type": "Animal, Character, Exploitable, Image Macro, Slang",
+        "year": "2010",
+        "origin": "Tumblr",
+        "desc": "2010 photograph of a Shiba Inu dog accompanied by multicolored text in Comic Sans font representing the dog's inner monologue.",
+        "impact": "Popularized phrases like 'such wow' and led to the creation of Dogecoin, a cryptocurrency.",
+        "link": "https://knowyourmeme.com/memes/doge"
+    },
+    {
+        "name": "Pepe the Frog",
+        "image": "pepe-the-frog.jpg",
+        "type": "Character, Exploitable",
+        "year": "2008",
+        "origin": "Boy’s Club",
+        "desc": "Created by Matt Furie in 2005 for his comic 'Boy's Club.'",
+        "impact": "Initially a harmless meme, it was later co-opted by various internet groups, leading to controversial associations.",
+        "link": "https://knowyourmeme.com/memes/pepe-the-frog"
+    },
+    {
+        "name": "Success Kid",
+        "image": "success-kid-i-hate-sandcastles.jpg",
+        "type": "Image Macro",
+        "year": "2007",
+        "origin": "Flickr",
+        "desc": "2007 photo of a toddler clenching his fist with a determined facial expression.",
+        "impact": "Used to convey personal success or achievement.",
+        "link": "https://knowyourmeme.com/memes/success-kid-i-hate-sandcastles"
+    },
+    {
+        "name": "Grumpy Cat",
+        "image": "grumpy-cat.jpg",
+        "type": "Animal, Character, Image Macro, Photoshop",
+        "year": "2012",
+        "origin": "Reddit",
+        "desc": "2012 photo of a cat named Tardar Sauce with a distinct frown.",
+        "impact": "Became a symbol for displeasure and spawned a wide range of merchandise and media appearances.",
+        "link": "https://knowyourmeme.com/memes/grumpy-cat"
+    },
+    {
+        "name": "Bad Luck Brian",
+        "image": "bad-luck-brian.jpg",
+        "type": "Character, Image Macro",
+        "year": "2012",
+        "origin": "Reddit",
+        "desc": "2012 yearbook photo of Kyle Craven wearing braces and a vest.",
+        "impact": "Represents a person who experiences frequent misfortune.",
+        "link": "https://knowyourmeme.com/memes/bad-luck-brian"
+    },
+    {
+        "name": "Roll Safe",
+        "image": "roll-safe.jpg",
+        "type": "Reaction",
+        "year": "2016",
+        "origin": "Twitter",
+        "desc": "Screenshot from the 2016 web series 'Hood Documentary' featuring actor Kayode Ewumi pointing to his temple.",
+        "impact": "Used to depict flawed logic or clever thinking.",
+        "link": "https://knowyourmeme.com/memes/roll-safe"
+    },
+    {
+        "name": "Mocking SpongeBob",
+        "image": "mocking-spongebob.jpg",
+        "type": "Image Macro",
+        "year": "2017",
+        "origin": "Twitter",
+        "desc": "2017 image of SpongeBob SquarePants from the episode 'Little Yellow Book,' where he mimics a chicken.",
+        "impact": "Employed to mock or imitate someone in a sarcastic manner.",
+        "link": "https://knowyourmeme.com/memes/mocking-spongebob"
+    },
+    {
+        "name": "Is This a Pigeon?",
+        "image": "is-this-a-pigeon.jpg",
+        "type": "Exploitable",
+        "year": "1991",
+        "origin": "The Brave Fighter of Sun Fighbird / 太陽の勇者ファイバード",
+        "desc": "Scene from the 1991 anime 'The Brave Fighter of Sun Fighbird,' where a character mistakes a butterfly for a pigeon.",
+        "impact": "Used to question misidentifications or misconceptions.",
+        "link": "https://knowyourmeme.com/memes/is-this-a-pigeon"
+    },
+    {
+        "name": "Woman Yelling at a Cat",
+        "image": "woman-yelling-at-a-cat.jpg",
+        "type": "Exploitable",
+        "year": "2019",
+        "origin": "Twitter",
+        "desc": "Combination of a 2011 'Real Housewives' screenshot and a 2018 photo of a confused-looking cat named Smudge.",
+        "impact": "Highlights misunderstandings or mismatched reactions.",
+        "link": "https://knowyourmeme.com/memes/woman-yelling-at-a-cat"
+    },
+    {
+        "name": "Expanding Brain",
+        "image": "expanding-brain.jpg",
+        "type": "Exploitable",
+        "year": "2017",
+        "origin": "Reddit",
+        "desc": "2017 image series depicting the human brain expanding in relation to the depth of thought.",
+        "impact": "Satirizes the perceived complexity or intelligence of various ideas.",
+        "link": "https://knowyourmeme.com/memes/expanding-brain"
+    },
+    {
+        "name": "Arthur's Fist",
+        "image": "arthurs-fist.jpg",
+        "type": "Exploitable, Pop Culture Reference, Reaction",
+        "year": "2016",
+        "origin": "Twitter",
+        "desc": "1996 screenshot from the children's show 'Arthur,' showing the character's clenched fist.",
+        "impact": "Represents suppressed anger or frustration.",
+        "link": "https://knowyourmeme.com/memes/arthurs-fist"
+    },
+    {
+        "name": "Drake Hotline Bling",
+        "image": "drakeposting.jpg",
+        "type": "Exploitable, Reaction",
+        "year": "2015",
+        "origin": "4chan",
+        "desc": "2015 music video by Drake, where he makes contrasting gestures.",
+        "impact": "Used to express preferences between two options.",
+        "link": "https://knowyourmeme.com/memes/drakeposting"
+    },
+    {
+        "name": "Two Buttons",
+        "image": "daily-struggle-two-buttons.jpg",
+        "type": "Exploitable",
+        "year": "2014",
+        "origin": "Tumblr",
+        "desc": "2014 comic by artist Jacob Andrews, depicting a man sweating over which of two buttons to press.",
+        "impact": "Illustrates difficult choices or dilemmas.",
+        "link": "https://knowyourmeme.com/memes/daily-struggle-two-buttons"
+    },
+    {
+        "name": "Left Exit 12 Off Ramp",
+        "image": "left-exit-12-off-ramp.jpg",
+        "type": "Exploitable",
+        "year": "2017",
+        "origin": "YouTube",
+        "desc": "2013 stock photo of a car swerving onto an off-ramp.",
+        "impact": "Symbolizes sudden changes in decisions or priorities.",
+        "link": "https://knowyourmeme.com/memes/left-exit-12-off-ramp"
+    },
+    {
+        "name": "Epic Handshake",
+        "image": "epic-handshake.jpg",
+        "type": "Exploitable, Image Macro, Reaction",
+        "year": "2007",
+        "origin": "YouTube",
+        "desc": "Scene from the 1987 film 'Predator,' featuring a muscular handshake between characters Dutch (Arnold Schwarzenegger) and Dillon (Carl Weathers).",
+        "impact": "Symbolizes unexpected alliances or agreements between different groups or individuals.",
+        "link": "https://knowyourmeme.com/memes/epic-handshake"
+    },
+    {
+        "name": "Hide the Pain Harold",
+        "image": "hide-the-pain-harold.jpg",
+        "type": "Character, Image Macro",
+        "year": "2011",
+        "origin": "Facepunch",
+        "desc": "Stock photos of Hungarian man András Arató, whose facial expression appears to mask inner pain.",
+        "impact": "Represents concealed discomfort or existential dread in humorous contexts.",
+        "link": "https://knowyourmeme.com/memes/hide-the-pain-harold"
+    },
+    {
+        "name": "Y U No Guy",
+        "image": "y-u-no-guy.jpg",
+        "type": "Character",
+        "year": "2010",
+        "origin": "Tumblr",
+        "desc": "Character from the Japanese manga 'Gantz,' redrawn to express frustration, first appearing online in 2010.",
+        "impact": "Used to question and express annoyance at various situations or behaviors.",
+        "link": "https://knowyourmeme.com/memes/y-u-no-guy"
+    },
+    {
+        "name": "Condescending Wonka",
+        "image": "condescending-wonka.jpg",
+        "type": null,
+        "year": "2010",
+        "origin": "Quickmeme",
+        "desc": "Still from the 1971 film 'Willy Wonka & the Chocolate Factory,' featuring Gene Wilder as Willy Wonka.",
+        "impact": "Employed to convey sarcasm or patronizing attitudes toward various topics.",
+        "link": "https://knowyourmeme.com/memes/condescending-wonka"
+    },
+    {
+        "name": "Ermahgerd",
+        "image": "ermahgerd.jpg",
+        "type": "Image Macro, Slang",
+        "year": "2012",
+        "origin": "Reddit",
+        "desc": "2012 image of a young girl excitedly holding 'Goosebumps' books, with the caption mimicking a lisping pronunciation of 'Oh my God.'",
+        "impact": "Parodies overexcitement and enthusiasm, often in a humorous, exaggerated manner.",
+        "link": "https://knowyourmeme.com/memes/ermahgerd"
+    },
+    {
+        "name": "Overly Attached Girlfriend",
+        "image": "overly-attached-girlfriend.jpg",
+        "type": "Image Macro",
+        "year": "2012",
+        "origin": "YouTube",
+        "desc": "2012 YouTube video by Laina Morris, parodying Justin Bieber's 'Boyfriend' with obsessive lyrics.",
+        "impact": "Represents clingy or overly possessive behavior in relationships.",
+        "link": "https://knowyourmeme.com/memes/overly-attached-girlfriend"
+    },
+    {
+        "name": "Philosoraptor",
+        "image": "philosoraptor.jpg",
+        "type": "Image Macro",
+        "year": "2008",
+        "origin": "4chan",
+        "desc": "Image macro featuring a Velociraptor pondering deep philosophical questions, first appearing in 2008.",
+        "impact": "Combines humor with philosophical or paradoxical inquiries.",
+        "link": "https://knowyourmeme.com/memes/philosoraptor"
+    },
+    {
+        "name": "Scumbag Steve",
+        "image": "scumbag-steve.jpg",
+        "type": "Character, Image Macro",
+        "year": "2011",
+        "origin": "Reddit",
+        "desc": "2006 photo of Blake Boston wearing a backward cap and jacket with a fur collar.",
+        "impact": "Symbolizes unethical or obnoxious behavior, often at the expense of others.",
+        "link": "https://knowyourmeme.com/memes/scumbag-steve"
+    },
+    {
+        "name": "Ancient Aliens",
+        "image": "ancient-aliens.jpg",
+        "type": "Character, Conspiracy Theory, Image Macro, Parody, Pop Culture Reference",
+        "year": "2010",
+        "origin": "4chan",
+        "desc": "Still from the History Channel's 'Ancient Aliens' series, featuring Giorgio A. Tsoukalos gesturing with his hands.",
+        "impact": "Used to humorously attribute unexplained phenomena to extraterrestrial influences.",
+        "link": "https://knowyourmeme.com/memes/ancient-aliens"
+    },
+    {
+        "name": "First World Problems",
+        "image": "first-world-problems.jpg",
+        "type": "Catchphrase, Hashtag, Image Macro",
+        "year": "2011",
+        "origin": "Unknown",
+        "desc": "Image macro series featuring a person crying, highlighting trivial inconveniences experienced in affluent societies.",
+        "impact": "Satirizes the tendency to complain about minor issues, contrasting them with more serious global problems.",
+        "link": "https://knowyourmeme.com/memes/first-world-problems"
+    },
+    {
+        "name": "Good Guy Greg",
+        "image": "good-guy-greg.jpg",
+        "type": null,
+        "year": "2011",
+        "origin": "4chan",
+        "desc": "2011 image macro featuring a smiling man with a cigarette, representing a kind and considerate individual.",
+        "impact": "Highlights positive behaviors and acts of kindness, serving as a counter to negative stereotypes.",
+        "link": "https://knowyourmeme.com/memes/good-guy-greg"
+    },
+    {
+        "name": "Socially Awkward Penguin",
+        "image": "socially-awkward-penguin.jpg",
+        "type": null,
+        "year": "2009",
+        "origin": "4chan",
+        "desc": "Image macro featuring a penguin on a blue background, first appearing in 2009.",
+        "impact": "Depicts uncomfortable or embarrassing social situations, resonating with those who experience social anxiety.",
+        "link": "https://knowyourmeme.com/memes/socially-awkward-penguin"
+    },
+    {
+        "name": "Nyan Cat",
+        "image": "nyan-cat.jpg",
+        "type": "Character, Viral Video",
+        "year": "2011",
+        "origin": "LOL-COMICS",
+        "desc": "2011 YouTube video featuring an animated cat with a Pop-Tart body flying through space, leaving a rainbow trail, set to a catchy Japanese pop song.",
+        "impact": "Became a viral sensation, representing the whimsical and absurd side of internet culture.",
+        "link": "https://knowyourmeme.com/memes/nyan-cat"
+    },
+    {
+        "name": "Trollface",
+        "image": "trollface.jpg",
+        "type": "Character",
+        "year": "2008",
+        "origin": "DeviantArt",
+        "desc": "Crudely drawn face with a mischievous grin, created by Carlos Ramirez in 2008 to represent internet trolls.",
+        "impact": "Symbolizes pranks, mischief, and trolling behavior online.",
+        "link": "https://knowyourmeme.com/memes/trollface"
+    },
+    {
+        "name": "Forever Alone",
+        "image": "forever-alone.jpg",
+        "type": "Character",
+        "year": "2010",
+        "origin": "FunnyJunk",
+        "desc": "Rage comic character with a tear-streaked face, representing loneliness and social isolation.",
+        "impact": "Used to express feelings of loneliness or rejection in a humorous, self-deprecating manner.",
+        "link": "https://knowyourmeme.com/memes/forever-alone"
+    },
+    {
+        "name": "Me Gusta",
+        "image": "me-gusta.jpg",
+        "type": "Character, Exploitable, Image Macro",
+        "year": "2010",
+        "origin": "4chan",
+        "desc": "Rage comic face with a distorted expression, created by artist Matt Oswald in 2010, used to convey perverse pleasure.",
+        "impact": "Employed to express enjoyment of awkward or unconventional situations.",
+        "link": "https://knowyourmeme.com/memes/me-gusta"
+    },
+    {
+        "name": "Yao Ming Face",
+        "image": "yao-ming-face.jpg",
+        "type": "Character",
+        "year": "2010",
+        "origin": "Reddit",
+        "desc": "Stylized drawing of basketball player Yao Ming laughing, based on a press conference image from 2009.",
+        "impact": "Used to dismiss or mock trivial issues, conveying a carefree attitude.",
+        "link": "https://knowyourmeme.com/memes/yao-ming-face"
+    },
+    {
+        "name": "Dat Boi",
+        "image": "dat-boi.jpg",
+        "type": null,
+        "year": "2016",
+        "origin": "Facebook",
+        "desc": "2016 meme featuring a 3D-rendered frog riding a unicycle, often accompanied by the phrase 'Here come dat boi! Oh shit waddup!'",
+        "impact": "Embraced for its randomness and absurdity, exemplifying surreal internet humor.",
+        "link": "https://knowyourmeme.com/memes/dat-boi"
+    },
+    {
+        "name": "Loss (//)",
+        "image": "loss.jpg",
+        "type": "Parody",
+        "year": "2008",
+        "origin": "Ctrl+Alt+Del",
+        "desc": "2008 webcomic strip from 'Ctrl+Alt+Del' depicting a miscarriage, abstracted into a minimalist form.",
+        "impact": "Became a meta-meme, with users referencing its structure in various creative ways, often to satirize forced drama in webcomics.",
+        "link": "https://knowyourmeme.com/memes/loss"
+    },
+    {
+        "name": "This Is Fine",
+        "image": "this-is-fine.jpg",
+        "type": "Exploitable",
+        "year": "2016",
+        "origin": "Gunshow",
+        "desc": "2013 webcomic by K.C. Green, showing a dog sitting in a burning room, calmly stating, 'This is fine.'",
+        "impact": "Represents denial or acceptance of a disastrous situation, often used to comment on personal or societal issues.",
+        "link": "https://knowyourmeme.com/memes/this-is-fine"
+    },
+    {
+        "name": "Surprised Pikachu",
+        "image": "surprised-pikachu.jpg",
+        "type": "Reaction",
+        "year": "2018",
+        "origin": "Tumblr",
+        "desc": "Still from the Pokémon animated series featuring Pikachu with a shocked expression. First used as a meme in 2018.",
+        "impact": "Often used to humorously depict situations where someone is surprised by an outcome that was completely predictable.",
+        "link": "https://knowyourmeme.com/memes/surprised-pikachu"
+    },
+    {
+        "name": "Galaxy Brain",
+        "image": "galaxy-brain.jpg",
+        "type": "Exploitable",
+        "year": "2017",
+        "origin": "Reddit",
+        "desc": "A meme format that started as an ironic depiction of increasing intelligence, typically with an expanding brain.",
+        "impact": "Used to highlight overly complicated ideas or the absurdity of thinking one is intellectually superior.",
+        "link": "https://knowyourmeme.com/memes/galaxy-brain"
+    }
+]
