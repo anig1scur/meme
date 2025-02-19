@@ -12,9 +12,10 @@ I love meme.
 
 ## Another View
 
-鬼畜 ? 
+1. 鬼畜 ?
+2. 二次元
 
-## Useful Articles
+## Useful Links
 
 1. [Memes in Digital Culture](https://www.rosario.gob.ar/inicio/sites/default/files/2024-09/Memes%20in%20Digital%20Culture%20-Limor%20Shifman.pdf)
 2. [MEMOTION ANALYSIS](https://arxiv.org/pdf/2008.03781v1)

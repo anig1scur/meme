@@ -1,36 +1,50 @@
 <script lang="ts">
-	import Home from "./routes/Home.svelte";
-	import NoMatch from "./components/NoMatch.svelte";
+  import Home from './routes/Home.svelte';
+  import Gallery from './routes/Gallery.svelte';
+  import Random from './routes/Random.svelte';
+  import Meme from './routes/Meme.svelte';
+  import Visualization from './routes/Visualization.svelte';
+  import NoMatch from './components/NoMatch.svelte';
+  import {Router, Route} from 'svelte-routing';
 
-	import { Router, Route } from "svelte-routing";
-	import { onMount } from "svelte";
-
-	let Component: any;
-
-	onMount(async () => {
-		const path = window.location.pathname;
-
-		if (path === "/") {
-			Component = Home
-		} else if (/^\/any\/[^\/]+\/*?$/.test(path)) {
-			Component = NoMatch
-		} else {
-			Component = NoMatch
-		}
-	});
-
-	export let url: string = "";
+  export let url: string = '';
 </script>
 
 <svelte:head>
-	{#if import.meta.env.PROD}
-	<script defer data-domain={document.location.host} src="https://plausible.joincommunity.xyz/js/script.js"></script>
-	{/if}
+  {#if import.meta.env.PROD}
+    <script
+      defer
+      data-domain={document.location.host}
+      src="https://plausible.joincommunity.xyz/js/script.js"
+    ></script>
+  {/if}
 </svelte:head>
 
 <Router {url}>
-	<main class="select-none">
-		<Route patth="*"><svelte:component this={Component} /></Route>
-		<Route path="/"><svelte:component this={Component} /></Route>
-	</main>
+  <main class="select-none">
+    <Route
+      path="/"
+      component={Home}
+    />
+    <Route
+      path="/random"
+      component={Random}
+    />
+    <Route
+      path="/meme"
+      component={Meme}
+    />
+    <Route
+      path="/visualization"
+      component={Visualization}
+    />
+    <Route
+      path="/gallery"
+      component={Gallery}
+    />
+    <Route
+      path="*"
+      component={NoMatch}
+    />
+  </main>
 </Router>
