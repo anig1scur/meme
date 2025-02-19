@@ -32,4 +32,7 @@ I love meme.
 
 1. google trends
    1. https://trends.google.com/trends/explore?date=all&q=distracted%20boyfriend
-2. 
+2. heatmap in different month
+3. source distribution
+4. emotion distribution
+
