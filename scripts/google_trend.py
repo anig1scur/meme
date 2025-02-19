@@ -9,6 +9,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 BASE = os.path.join(os.path.dirname(__file__), "../public")
+DOWNLOAD_DIR = os.path.expanduser("~/Downloads")
 
 
 def load_json(filename):
@@ -31,7 +32,7 @@ options.add_experimental_option(
         "download.directory_upgrade": True,
         "safebrowsing.enabled": True,
         "profile.default_content_setting_values.automatic_downloads": 1,
-        "download.default_directory": "/Users/ac3r/Downloads/",
+        "download.default_directory": DOWNLOAD_DIR,
     },
 )
 options.add_argument("--disable-blink-features=AutomationControlled")
@@ -81,9 +82,12 @@ for item in data:
         export_button.click()
         time.sleep(2)
 
-        os.rename("/Users/ac3r/Downloads/multiTimeline.csv", file_path)
+        os.rename(
+            os.path.join(DOWNLOAD_DIR, "multiTimeline.csv"),
+            file_path,
+        )
 
-        item["csv_file"] = csv_filename
+        item["google_trending"] = csv_filename
     except Exception as e:
         print(f"Error processing {query}: {e}")
 

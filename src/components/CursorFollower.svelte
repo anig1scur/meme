@@ -10,7 +10,7 @@
     y: window.innerHeight / 2,
   }));
 
-  const spacing = 20;
+  const spacing = 25;
   let mouse = {x: window.innerWidth / 2, y: window.innerHeight / 2};
 
   onMount(() => {
@@ -49,7 +49,7 @@
   }
 </script>
 
-<div class="fixed font-routedgothic text-xl pointer-events-none">
+<div class="fixed font-routedgothic text-2xl pointer-events-none z-10">
   {#each characters as char, i}
     <span
       bind:this={spans[i]}
