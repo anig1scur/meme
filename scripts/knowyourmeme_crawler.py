@@ -43,18 +43,29 @@ def scrape_meme_details(meme_name, url):
         elif "Origin" in dt.text:
             origin = dd.text.strip()
 
+    # h2 #about
+    about = None
+    about_el = soup.select_one("#about")
+    if about_el:
+        about = about_el.find_next("p").text.strip()
+
+    origin_story = None
+    origin_el = soup.select_one("#origin")
+    if origin_el:
+        origin_story = origin_el.find_next("p").text.strip()
+
     # Download image and save it locally
     img_response = requests.get(img_url)
     img_name = f"{meme_id}.jpg"
     file_path = os.path.join(IMG_DIR, img_name)
     if os.path.exists(file_path):
         print(f"Image {img_name} already exists. Skipping download.")
-        return meme_name, img_name, meme_type, year, origin
+        return meme_name, img_name, meme_type, year, origin, about, origin_story
 
     with open(os.path.join(IMG_DIR, img_name), "wb") as img_file:
         img_file.write(img_response.content)
 
-    return meme_name, img_name, meme_type, year, origin
+    return meme_name, img_name, meme_type, year, origin, about, origin_story
 
 
 df = pd.read_csv(input_csv)
@@ -62,10 +73,10 @@ meme_data = []
 
 # Scrape details for each meme
 for index, row in df.iterrows():
-    meme_name = row["Name"]
-    url = row["Link"]
-    desc = row["Origin"]
-    impact = row["Impact"]
+    meme_name = row["title"]
+    url = row["kym_url"]
+    imgflip_url = row["url"]
+    # id,title,url,kym_url
     details = scrape_meme_details(meme_name, url)
     meme_data.append(
         {
@@ -74,9 +85,10 @@ for index, row in df.iterrows():
             "type": details[2],
             "year": details[3],
             "origin": details[4],
-            "desc": desc,
-            "impact": impact,
+            "about": details[5],
+            "origin_story": details[6],
             "link": url,
+            "imgflip": imgflip_url,
         }
     )
 

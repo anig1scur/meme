@@ -24,7 +24,7 @@
           />
           <div class="p-4">
             <h3 class="text-xl font-semibold text-gray-800">{meme.name}</h3>
-            <p class="text-gray-600 mt-2">{meme.desc}</p>
+            <p class="text-gray-600 mt-2">{meme.about}</p>
             <p class="mt-4 text-sm text-gray-500">{meme.year} | {meme.origin}</p>
             <p class="mt-2 text-sm font-semibold">{meme.type}</p>
             <a
