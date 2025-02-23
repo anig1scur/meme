@@ -39,10 +39,6 @@
       component={Visualization}
     />
     <Route
-      path="/gallery"
-      component={Gallery}
-    />
-    <Route
       path="*"
       component={NoMatch}
     />
