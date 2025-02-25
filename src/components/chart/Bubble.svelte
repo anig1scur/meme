@@ -98,7 +98,7 @@
         height={$height}
       >
         <div
-          class="cursor-zoom-out w-full h-[95%] flex flex-col overflow-auto items-center justify-center text-white opacity-0 animate-fade-in"
+          class="cursor-zoom-out w-full h-[95%] flex flex-col overflow-auto items-center pt-4 text-white opacity-0 animate-fade-in"
         >
           {#each data as meme}
             <Card {...meme} />

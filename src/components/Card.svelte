@@ -6,7 +6,7 @@
 
 <div class="w-[85%] mb-4">
   <img
-    class="w-full grayscale object-contain"
+    class="w-full grayscale object-contain rounded"
     src={'top50/images/' + image}
     alt={name}
   />
