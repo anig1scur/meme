@@ -19,8 +19,8 @@
     ></line>
     <text
       x={scale(tick)}
-      y={innerHeight + 20}
-      class="ticklabel x">{format('.1s')(tick)}</text
+      y={innerHeight + 60}
+      class="ticklabel x">{tick}</text
     >
   {/each}
 {/if}
@@ -35,7 +35,7 @@
       class="gridline"
     ></line>
     <text
-      x={-20}
+      x={-80}
       y={scale(tick) + 5}
       class="ticklabel">{tick}</text
     >
@@ -45,7 +45,7 @@
 <style>
   line.gridline {
     stroke-width: 1px;
-    stroke: #ccc;
+    stroke: #ddd;
     stroke-dasharray: 4;
   }
   text.ticklabel {

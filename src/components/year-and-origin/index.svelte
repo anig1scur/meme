@@ -1,134 +1,121 @@
 <script>
-  // A Svelte component contains javascript (in a <script> tag), html and css (in a <style> tag). This main App component does not have styling, but the Bubble and Grid components do
-
   import {tweened} from 'svelte/motion';
   import * as easings from 'svelte/easing';
-  import data from './data.js';
-  // D3 is is installed here, so we can import the needed functions from it
-  import {extent, scaleLinear, scaleLog, scaleOrdinal, scaleSqrt, max} from 'd3';
-  // Here we import the custom components, you can check them by clicking the tabs at the top of this code editor
+  import {scaleLinear, scaleOrdinal, scaleSqrt} from 'd3';
   import Bubble from '../visualization/Bubble.svelte';
   import Grid from '../visualization/Grid.svelte';
+  import rawData from './meme_details.json';
 
-  let year = 2018;
+  let yearRanges = Array.from({length: 7}, (_, i) => ({
+    min: 2000 + i * 5,
+    max: 2005 + i * 5,
+    label: `${2000 + i * 5}-${2005 + i * 5}`,
+  }));
 
-  // Here we split the data in 2, which we need in order to animate between them
-  const data60 = data.map((d) => {
-    let obj = {};
-    obj.country = d.country;
-    obj.continent = d.continent;
-    obj.population = d.population60;
-    obj.lifeexp = d.lifeexp60;
-    obj.income = d.income60;
-    return obj;
-  });
-  const data18 = data.map((d) => {
-    let obj = {};
-    obj.country = d.country;
-    obj.continent = d.continent;
-    obj.population = d.population;
-    obj.lifeexp = d.lifeexp;
-    obj.income = d.income;
-    return obj;
-  });
+  const validOrigins = [
+    'Instagram',
+    'Tumblr',
+    'Facebook',
+    'TikTok',
+    '4chan',
+    'Twitter',
+    'YouTube',
+    'Reddit',
+    'Unknown',
+    'Other',
+  ];
+  const validOriginsSet = new Set(validOrigins);
 
-  // With Svelte's tweened, you can interpolate between data values, see https://svelte.dev/docs#tweened. The initial values are set here to be the data from 2018
-  const tweenedPoints = tweened(data18, {
-    delay: 0,
+  const normalizeOrigin = (origin) => (validOriginsSet.has(origin) ? origin : 'Other');
+
+  const margin = {top: 20, bottom: 80, left: 80, right: 20};
+  const width = 900;
+  const height = 600;
+  const innerWidth = width - margin.left - margin.right;
+  const innerHeight = height - margin.top - margin.bottom;
+
+  $: xScale = scaleOrdinal()
+    .domain(yearRanges.map((r) => r.label))
+    .range([...Array(yearRanges.length).keys()].map((i) => (i / (yearRanges.length - 1)) * innerWidth));
+
+  const minYear = 2000;
+  const maxYear = 2025;
+  const yearStep = 2.5;
+
+  $: xScaleFine = scaleLinear().domain([minYear, maxYear]).range([0, innerWidth]);
+
+  const getYearBucket = (year) => Math.floor(year / yearStep) * yearStep;
+
+  const groupedMemeData = rawData.reduce((acc, {year, origin}) => {
+    const yearBucket = !year || year === 'Unknown' || Number(year) < 2000 ? 'before' : getYearBucket(year);
+    const originGroup = normalizeOrigin(origin);
+    const key = `${yearBucket}-${originGroup}`;
+
+    if (!acc[key]) acc[key] = {year: yearBucket, origin: originGroup, count: 0};
+    acc[key].count++;
+
+    return acc;
+  }, {});
+
+  const memeData = Object.values(groupedMemeData);
+  console.log(memeData);
+
+  const animatedMemeData = tweened(memeData, {
+    delay: 300,
     duration: 1500,
     easing: easings.cubicOut,
   });
 
-  // With "$:" you can specify reactive statements in Svelte. Svelte checks all variables in the statement, and when one of them changes, the statement is run and everything is updated. In this case, tweenedPoints is updated depending on the selected year radio button. See https://svelte.dev/docs#3_$_marks_a_statement_as_reactive
-  $: if (year == 1960) {
-    tweenedPoints.set(data60);
-  } else {
-    tweenedPoints.set(data18);
-  }
+  animatedMemeData.set(memeData);
 
-  const margin = {top: 15, bottom: 50, left: 50, right: 20};
-  const width = 800;
-  const height = 500;
-  const innerHeight = height - margin.top - margin.bottom;
-  const innerWidth = width - margin.left - margin.right;
+  const maxCount = Math.max(...memeData.map((d) => d.count));
 
-  const maxpop = max(data18, (d) => d.population);
+  const rScale = scaleSqrt().domain([0, maxCount]).range([5, 50]);
 
-  // Here, the x and y scales (both of them are D3 scales) are declared as reactive. This means that they update whenever tweenedPoints changes, and because tweenedPoints interpolates between values, the scales are transitioned too. If you want fixed scales (which make sense here), you can set the domain of xScale to [400, 70000] and the domain of yScale to [30, 90]. In that case the reactive scales only depend on innerWidth and innerHeight, which might be handy to make responsive charts
-  $: xScale = scaleLog()
-    //.domain([400, 70000])
-    .domain(extent($tweenedPoints, (d) => d.income))
-    .range([0, innerWidth]);
-  $: xTicks = xScale.ticks();
-  $: yScale = scaleLinear()
-    //.domain([30, 90])
-    .domain(extent($tweenedPoints, (d) => d.lifeexp))
-    .range([innerHeight, 0]);
-  $: yTicks = yScale.ticks();
+  $: yScale = scaleOrdinal()
+    .domain(validOrigins)
+    .range([...Array(validOrigins.length).keys()].map((i) => (i / (validOrigins.length - 1)) * innerHeight));
 
-  // The scales for the radius and the colors don't depend on variables that might change, so we don't need the reactive "$:" statement
-  const rScale = scaleSqrt().domain([0, maxpop]).range([0, 50]);
-  const colors = ['#FF265C', '#FFE700', '#4ED7E9', '#70ED02', 'purple'];
-  const colorScale = scaleOrdinal().domain(['Asia', 'Europe', 'Africa', 'Americas', 'Oceania']).range(colors);
+  const xAxisTicks = ['<1995', 2000, 2005, 2010, 2015, 2020, 2025];
+
+  const colorScale = scaleOrdinal()
+    .domain([...validOrigins, 'Other'])
+    .range(['#FF265C', '#FFE700', '#4ED7E9', '#70ED02', '#9370DB', '#FF8C00', '#808080']);
 </script>
 
-<!--Here the returned html starts-->
-<!--The radio buttons below are bound to the year variable, declared at the beginning of the javascript.-->
-<label>
-  <input
-    type="radio"
-    bind:group={year}
-    name="year"
-    value={2018}
-  />
-  2018
-</label>
-<label>
-  <input
-    type="radio"
-    bind:group={year}
-    name="year"
-    value={1960}
-  />
-  1960
-</label>
-
-<!--In Svelte "{width}"" is just short for "width={width}", which sets the value of the width property of the html element to the javascript variable width-->
 <svg
   {width}
   {height}
 >
   <g transform={`translate(${margin.left},${margin.top})`}>
-    <!--Here we are using the custom Grid component. We are passing 5 properties to it, notice how these are the same ones as the variables that the component exports (check the Grid.svelte tab). This is how you pass properties from parent to child components-->
     <Grid
       gridType="xGrid"
       {innerHeight}
       {innerWidth}
       scale={xScale}
-      ticks={xTicks}
+      ticks={xAxisTicks}
     />
     <Grid
       gridType="yGrid"
       {innerHeight}
       {innerWidth}
       scale={yScale}
-      ticks={yTicks}
+      ticks={validOrigins}
     />
 
-    <text transform={`translate(${-30},${innerHeight / 2}) rotate(-90)`}>Life expectancy</text>
-    <text
+    <!-- <text transform={`translate(${-30},${innerHeight / 2}) rotate(-90)`}>Origin</text> -->
+    <!-- <text
       x={innerWidth / 2}
-      y={innerHeight + 35}>GDP/capita</text
-    >
+      y={innerHeight + 40}>Year Range</text
+    > -->
 
-    <!--In Svelte you can iterate over arrays of data with each blocks, see https://svelte.dev/docs#each. The following block adds a Bubble to the chart for each data element in tweenedPoints-->
-    {#each $tweenedPoints as d}
+    {#each $animatedMemeData as d}
       <Bubble
-        cx={xScale(d.income)}
-        cy={yScale(d.lifeexp)}
-        r={rScale(d.population)}
-        fill={colorScale(d.continent)}
-      ></Bubble>
+        cx={xScaleFine(d.year)}
+        cy={yScale(d.origin)}
+        r={rScale(d.count)}
+        fill={colorScale(d.origin)}
+      />
     {/each}
   </g>
 </svg>
