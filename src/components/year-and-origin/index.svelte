@@ -4,7 +4,7 @@
   import {scaleLinear, scaleOrdinal, scaleSqrt} from 'd3';
   import Bubble from '../chart/Bubble.svelte';
   import Grid from '../chart/Grid.svelte';
-  import rawData from './meme_details.json';
+  import raw from '/public/meme_details.json';
 
   const validOrigins = [
     'Instagram',
@@ -37,7 +37,7 @@
 
   const getYearBucket = (year) => Math.floor(year / yearStep) * yearStep;
 
-  const groupedMemeData = rawData.reduce((acc, {year, origin, ...rest}) => {
+  const groupedMemeData = raw.reduce((acc, {year, origin, ...rest}) => {
     const yearBucket = !year || year === 'Unknown' || Number(year) < 2000 ? 'before' : getYearBucket(year);
     const originGroup = normalizeOrigin(origin);
     const key = `${yearBucket}-${originGroup}`;
