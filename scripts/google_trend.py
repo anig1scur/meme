@@ -86,7 +86,6 @@ for item in data:
             file_path,
         )
 
-        item["google_trending"] = csv_filename
     except Exception as e:
         print(f"Error processing {query}: {e}")
 

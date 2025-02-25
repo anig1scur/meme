@@ -4,7 +4,7 @@
   import {scaleLinear, scaleOrdinal, scaleSqrt} from 'd3';
   import Bubble from '../chart/Bubble.svelte';
   import Grid from '../chart/Grid.svelte';
-  import raw from '/public/meme_details.json';
+  import raw from '/public/meme_stats.json';
 
   const validOrigins = [
     'Instagram',
