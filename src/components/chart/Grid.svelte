@@ -1,5 +1,4 @@
 <script>
-  import {format} from 'd3';
   export let gridType;
   export let scale;
   export let innerHeight;
@@ -7,7 +6,6 @@
   export let ticks;
 </script>
 
-<!--With if blocks, you can conditionally return elements-->
 {#if gridType == 'xGrid'}
   {#each ticks as tick}
     <line

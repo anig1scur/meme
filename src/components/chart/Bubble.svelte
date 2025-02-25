@@ -1,21 +1,27 @@
 <script>
   import {spring} from 'svelte/motion';
+  import Card from '../Card.svelte';
 
   export let cx = 0;
   export let cy = 0;
   export let r;
   export let fill;
+  export let year;
+  export let origin;
   export let data;
 
   let isRect = false;
 
-  let offsetX = spring(0, {stiffness: 0.1, damping: 0.7});
-  let offsetY = spring(0, {stiffness: 0.1, damping: 0.7});
+  let springConfig = {stiffness: 0.1, damping: 0.7};
+  let offsetX = spring(0, springConfig);
+  let offsetY = spring(0, springConfig);
 
-  let radius = spring(r, {stiffness: 0.1, damping: 0.7});
-  let width = spring(2 * r, {stiffness: 0.1, damping: 0.7});
-  let height = spring(2 * r, {stiffness: 0.1, damping: 0.7});
-  let cornerRadius = spring(r, {stiffness: 0.1, damping: 0.7});
+  let radius = spring(r, springConfig);
+  let width = spring(2 * r, springConfig);
+  let height = spring(2 * r, springConfig);
+  let cornerRadius = spring(r, springConfig);
+
+  let fillColor = fill;
 
   let parentWidth = 0;
   let parentHeight = 0;
@@ -41,11 +47,12 @@
       cornerRadius.set(10);
 
       setTimeout(() => {
-        width.set(400);
+        width.set(540);
         height.set(540);
+        fillColor = '#E4E2DC';
 
-        const newX = parentWidth / 2 - cx;
-        const newY = parentHeight / 2 - cy;
+        const newX = parentWidth / 2.5 - cx;
+        const newY = parentHeight / 2 - cy - 30;
 
         offsetX.set(newX);
         offsetY.set(newY);
@@ -60,6 +67,7 @@
 
       setTimeout(() => {
         radius.set(r);
+        fillColor = fill;
       }, 100);
     }
   }
@@ -79,23 +87,25 @@
       height={$height}
       {fill}
       rx={$cornerRadius}
+      style="transition: fill 0.3s ease; fill: {fillColor}"
     />
     {#if isRect}
       <foreignObject
+        class="flex"
         x={cx - $width / 2}
         y={cy - $height / 2}
         width={$width}
         height={$height}
       >
         <div
-          class="cursor-zoom-out w-full h-full flex flex-col items-center justify-center text-white opacity-0 animate-fade-in"
+          class="cursor-zoom-out w-full h-[95%] flex flex-col overflow-auto items-center justify-center text-white opacity-0 animate-fade-in"
         >
           {#each data as meme}
-            <div class="text-center">
-              <strong>{meme.name}</strong><br />
-              Year: {meme.year}<br />
-            </div>
+            <Card {...meme} />
           {/each}
+        </div>
+        <div class="w-full flex justify-center mt-1 text-sm font-icon">
+          {Number(year) ? year.toPrecision(4) : year} | {origin}
         </div>
       </foreignObject>
     {/if}

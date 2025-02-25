@@ -2,10 +2,9 @@
   import {tweened} from 'svelte/motion';
   import * as easings from 'svelte/easing';
   import {scaleLinear, scaleOrdinal, scaleSqrt} from 'd3';
-  import Bubble from '../visualization/Bubble.svelte';
-  import Grid from '../visualization/Grid.svelte';
+  import Bubble from '../chart/Bubble.svelte';
+  import Grid from '../chart/Grid.svelte';
   import rawData from './meme_details.json';
-
 
   const validOrigins = [
     'Instagram',
@@ -100,6 +99,8 @@
         r={rScale(d.count)}
         fill={colorScale(d.origin)}
         data={d.memes}
+        origin={d.origin}
+        year={d.year}
       />
     {/each}
   </g>
