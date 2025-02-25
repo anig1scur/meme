@@ -1,0 +1,58 @@
+<script>
+  import {format} from 'd3';
+  export let gridType;
+  export let scale;
+  export let innerHeight;
+  export let innerWidth;
+  export let ticks;
+</script>
+
+<!--With if blocks, you can conditionally return elements-->
+{#if gridType == 'xGrid'}
+  {#each ticks as tick}
+    <line
+      x1={scale(tick)}
+      x2={scale(tick)}
+      y1={0}
+      y2={innerHeight}
+      class="gridline"
+    ></line>
+    <text
+      x={scale(tick)}
+      y={innerHeight + 20}
+      class="ticklabel x">{format('.1s')(tick)}</text
+    >
+  {/each}
+{/if}
+
+{#if gridType == 'yGrid'}
+  {#each ticks as tick}
+    <line
+      x1={0}
+      x2={innerWidth}
+      y1={scale(tick)}
+      y2={scale(tick)}
+      class="gridline"
+    ></line>
+    <text
+      x={-20}
+      y={scale(tick) + 5}
+      class="ticklabel">{tick}</text
+    >
+  {/each}
+{/if}
+
+<style>
+  line.gridline {
+    stroke-width: 1px;
+    stroke: #ccc;
+    stroke-dasharray: 4;
+  }
+  text.ticklabel {
+    font-size: 11px;
+    fill: #aaaaaa;
+  }
+  text.ticklabel.x {
+    text-anchor: middle;
+  }
+</style>
