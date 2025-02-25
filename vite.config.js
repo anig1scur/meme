@@ -25,18 +25,7 @@ export default defineConfig({
     })
   ],
   build: {
-    minify: 'terser',
+    minify: "esbuild",
     chunkSizeWarningLimit: 800,
-    terserOptions: {
-      ecma: 5,
-      compress: {
-        unsafe: true,
-        drop_console: true,
-        booleans_as_integers: true
-      },
-      format: {
-        ascii_only: true
-      }
-    }
   }
 })
