@@ -6,11 +6,6 @@
   import Grid from '../visualization/Grid.svelte';
   import rawData from './meme_details.json';
 
-  let yearRanges = Array.from({length: 7}, (_, i) => ({
-    min: 2000 + i * 5,
-    max: 2005 + i * 5,
-    label: `${2000 + i * 5}-${2005 + i * 5}`,
-  }));
 
   const validOrigins = [
     'Instagram',
@@ -34,31 +29,28 @@
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 
-  $: xScale = scaleOrdinal()
-    .domain(yearRanges.map((r) => r.label))
-    .range([...Array(yearRanges.length).keys()].map((i) => (i / (yearRanges.length - 1)) * innerWidth));
-
-  const minYear = 2000;
+  const minYear = 1995;
   const maxYear = 2025;
   const yearStep = 2.5;
 
-  $: xScaleFine = scaleLinear().domain([minYear, maxYear]).range([0, innerWidth]);
+  $: xScale = scaleLinear().domain([minYear, maxYear]).range([-140, innerWidth]);
+  const xAxisTicks = ['<2000', 2005, 2010, 2015, 2020, 2025];
 
   const getYearBucket = (year) => Math.floor(year / yearStep) * yearStep;
 
-  const groupedMemeData = rawData.reduce((acc, {year, origin}) => {
+  const groupedMemeData = rawData.reduce((acc, {year, origin, ...rest}) => {
     const yearBucket = !year || year === 'Unknown' || Number(year) < 2000 ? 'before' : getYearBucket(year);
     const originGroup = normalizeOrigin(origin);
     const key = `${yearBucket}-${originGroup}`;
 
-    if (!acc[key]) acc[key] = {year: yearBucket, origin: originGroup, count: 0};
+    if (!acc[key]) acc[key] = {year: yearBucket, origin: originGroup, count: 0, memes: []};
+
     acc[key].count++;
+    acc[key].memes.push({year, origin, ...rest});
 
     return acc;
   }, {});
-
   const memeData = Object.values(groupedMemeData);
-  console.log(memeData);
 
   const animatedMemeData = tweened(memeData, {
     delay: 300,
@@ -75,8 +67,6 @@
   $: yScale = scaleOrdinal()
     .domain(validOrigins)
     .range([...Array(validOrigins.length).keys()].map((i) => (i / (validOrigins.length - 1)) * innerHeight));
-
-  const xAxisTicks = ['<1995', 2000, 2005, 2010, 2015, 2020, 2025];
 
   const colorScale = scaleOrdinal()
     .domain([...validOrigins, 'Other'])
@@ -103,18 +93,13 @@
       ticks={validOrigins}
     />
 
-    <!-- <text transform={`translate(${-30},${innerHeight / 2}) rotate(-90)`}>Origin</text> -->
-    <!-- <text
-      x={innerWidth / 2}
-      y={innerHeight + 40}>Year Range</text
-    > -->
-
     {#each $animatedMemeData as d}
       <Bubble
-        cx={xScaleFine(d.year)}
+        cx={xScale(d.year)}
         cy={yScale(d.origin)}
         r={rScale(d.count)}
         fill={colorScale(d.origin)}
+        data={d.memes}
       />
     {/each}
   </g>
