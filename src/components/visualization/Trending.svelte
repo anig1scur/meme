@@ -20,7 +20,8 @@
 </script>
 
 <section class="visualization">
-  <div class="font-routedgothic mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
+  <div class="title">Google Trends of Memes Since 2004</div>
+  <div class="font-routedgothic grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
     {#each pagedData() as data, index}
       <LineGraph
         {data}
@@ -40,5 +41,4 @@
       </button>
     {/each}
   </div>
-  <div class="title">Google Trends of Memes Since 2004</div>
 </section>

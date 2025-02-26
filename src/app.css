@@ -11,6 +11,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   overflow-x: hidden;
+  background-color: #fdfdfb;
 }
 
 *,
@@ -106,9 +107,9 @@ a {
 }
 
 section.visualization {
-  @apply flex flex-col items-center mb-6;
+  @apply flex flex-col items-center mb-24 ml-24 relative last-of-type:mb-6;
 }
 
 section.visualization .title {
-  @apply text-2xl text-gray-700 font-routedgothic;
+  @apply text-5xl text-zinc-700 font-bold font-icon w-36 leading-[1.48] italic absolute -left-48 text-center;
 }

@@ -1,57 +1,69 @@
 <script>
-  import {getContext} from 'svelte';
+  import {getContext, onMount} from 'svelte';
   import {line, curveCardinalClosed} from 'd3';
+  import {tweened} from 'svelte/motion';
+  import {cubicOut} from 'svelte/easing';
 
   const {data, width, height, xGet, config} = getContext('LayerCake');
 
-  /**	@type {String} [fill='#f0c'] The radar's fill color. This is technically optional because it comes with a default value but you'll likely want to replace it with your own color. */
   export let fill = '#f0c';
-
-  /**	@type {String} [stroke='#f0c'] The radar's stroke color. This is technically optional because it comes with a default value but you'll likely want to replace it with your own color. */
   export let stroke = '#f0c';
-
-  /**	@type {Number} [stroke=2] The radar's stroke color. */
   export let strokeWidth = 2;
-
-  /**	@type {Number} [fillOpacity=0.5] The radar's fill opacity. */
   export let fillOpacity = 0.5;
-
-  /**	@type {Number} [r=4.5] Each circle's radius. */
   export let r = 4.5;
-
-  /**	@type {String} [circleFill="#f0c"] Each circle's fill color. This is technically optional because it comes with a default value but you'll likely want to replace it with your own color. */
   export let circleFill = '#f0c';
-
-  /**	@type {String} [circleStroke="#fff"] Each circle's stroke color. This is technically optional because it comes with a default value but you'll likely want to replace it with your own color. */
   export let circleStroke = '#fff';
-
-  /**	@type {Number} [circleStrokeWidth=1] Each circle's stroke width. */
   export let circleStrokeWidth = 1;
 
-  $: angleSlice = (Math.PI * 2) / $config.x.length;
+  let animationScale = tweened(0, {
+    duration: 1500,
+    easing: cubicOut,
+  });
 
+  let radarEl;
+  let observer;
+
+  function startAnimation() {
+    animationScale.set(1);
+  }
+
+  onMount(() => {
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            startAnimation();
+            // observer.disconnect();
+          }
+        });
+      },
+      {threshold: 0.1},
+    );
+
+    if (radarEl) {
+      observer.observe(radarEl);
+    }
+
+    return () => {
+      if (observer) {
+        observer.disconnect();
+      }
+    };
+  });
+
+  $: angleSlice = (Math.PI * 2) / $config.x.length;
   $: path = line()
     .curve(curveCardinalClosed)
-    .x((d, i) => d * Math.cos(angleSlice * i - Math.PI / 2))
-    .y((d, i) => d * Math.sin(angleSlice * i - Math.PI / 2));
-
-  /* The non-D3 line generator way. */
-  // $: path = valus => 'M' + values
-  // 	.map(d => {
-  // 		return $rGet(d).map((val, i) => {
-  // 			return [
-  // 				val * Math.cos(angleSlice * i - Math.PI / 2),
-  // 				val * Math.sin(angleSlice * i - Math.PI / 2)
-  // 			].join(',');
-  // 		});
-  // 	})
-  // 	.join('L') + 'z';
+    .x((d, i) => d * $animationScale * Math.cos(angleSlice * i - Math.PI / 2))
+    .y((d, i) => d * $animationScale * Math.sin(angleSlice * i - Math.PI / 2));
 </script>
 
-<g transform="translate({$width / 2}, {$height / 2})">
+<g
+  bind:this={radarEl}
+  transform="translate({$width / 2}, {$height / 2})"
+>
   {#each $data as row}
     {@const xVals = $xGet(row)}
-    <!-- Draw a line connecting all the dots -->
     <path
       class="path-line"
       d={path(xVals)}
@@ -60,13 +72,11 @@
       {fill}
       fill-opacity={fillOpacity}
     ></path>
-
-    <!-- Plot each dots -->
     {#each xVals as circleR, i}
       {@const thisAngleSlice = angleSlice * i - Math.PI / 2}
       <circle
-        cx={circleR * Math.cos(thisAngleSlice)}
-        cy={circleR * Math.sin(thisAngleSlice)}
+        cx={circleR * $animationScale * Math.cos(thisAngleSlice)}
+        cy={circleR * $animationScale * Math.sin(thisAngleSlice)}
         {r}
         fill={circleFill}
         stroke={circleStroke}

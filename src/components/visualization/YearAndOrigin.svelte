@@ -73,6 +73,7 @@
 </script>
 
 <section class="visualization">
+  <div class="title">The Origin and Year of Memes</div>
   <svg
     class="mb-5"
     {width}
@@ -107,5 +108,4 @@
       {/each}
     </g>
   </svg>
-  <div class="title">The Origins of Memes: Platforms and Year</div>
 </section>
