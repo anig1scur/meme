@@ -7,7 +7,7 @@
 <div class="w-[85%] mb-4">
   <img
     class="w-full grayscale object-contain rounded"
-    src={'top50/images/' + image}
+    src={'top/images/' + image}
     alt={name}
   />
   <div class="flex py-2 items-end justify-between font-routedgothic text-[#36312F]">

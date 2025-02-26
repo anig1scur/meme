@@ -64,18 +64,17 @@
     const rect = event.target.getBoundingClientRect();
     const mouseX = event.clientX - rect.left;
 
-    // 找到最近的月份索引
     const bisectDate = bisector((d) => d).left;
     const date = xScale.invert(mouseX);
     const index = bisectDate(months, date, 1);
-    const dataIndex = index - 1; // 确保不会超出范围
+    const dataIndex = index - 1;
 
     if (dataIndex >= 0 && dataIndex < data.trend.length) {
       tooltipData = {
         x: event.pageX,
         y: event.pageY,
         value: data.trend[dataIndex],
-        date: formatDate(months[dataIndex]), // 修复时间格式
+        date: formatDate(months[dataIndex]),
       };
       tooltipVisible = true;
     }
@@ -126,12 +125,14 @@
 </script>
 
 <div class="bg-white rounded-lg p-4">
-  <h3
+  <a
+    target="_blank"
+    href={`https://trends.google.com/trends/explore?date=all&q=${data.name}`}
     title={data.name}
-    class="text-sm font-medium text-gray-700 mb-2 text-center truncate max-w-60"
+    class="block text-sm font-medium text-gray-700 mb-2 text-center truncate max-w-60"
   >
     {data.name}
-  </h3>
+  </a>
   <svg
     {width}
     {height}

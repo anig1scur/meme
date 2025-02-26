@@ -11,7 +11,7 @@ with open(details_file, "r", encoding="utf-8") as f:
 
 for meme in memes_data:
     meme_id = meme["image"].split(".")[0].lower()
-    csv_file = os.path.join(BASE, "top50/trending", f"{meme_id}.csv")
+    csv_file = os.path.join(BASE, "top/trending", f"{meme_id}.csv")
     google_trend_data = []
 
     if os.path.exists(csv_file):

@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 
-BASE = os.path.join(os.path.dirname(__file__), "../public/top50")
+BASE = os.path.join(os.path.dirname(__file__), "../public/top")
 
 input_csv = os.path.join(BASE, "memes.csv")
 IMG_DIR = os.path.join(BASE, "images")

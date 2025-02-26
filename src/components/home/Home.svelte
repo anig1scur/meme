@@ -77,7 +77,7 @@
       {#each memeData.filter((_, i) => i % 5 === index) as meme}
         <div class="h-fit relative">
           <img
-            src={'top50/images/' + meme.image}
+            src={'top/images/' + meme.image}
             alt={meme.name}
             class="w-full h-auto object-cover mb-2"
           />

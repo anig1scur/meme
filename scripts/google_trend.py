@@ -61,7 +61,7 @@ for item in data:
     query = item["name"]
     id = item["image"].split(".")[0]
     csv_filename = f"{id}.csv"
-    file_path = os.path.join(BASE, "top50/trending/", csv_filename)
+    file_path = os.path.join(BASE, "top/trending/", csv_filename)
     if os.path.exists(file_path):
         print(f"CSV file {csv_filename} already exists. Skipping download.")
         continue
@@ -90,4 +90,3 @@ for item in data:
         print(f"Error processing {query}: {e}")
 
 driver.quit()
-save_json(json_file, data)

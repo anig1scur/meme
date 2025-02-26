@@ -48,7 +48,7 @@ def update_json_with_sentiment(json_file, md_data):
             meme["emotion"] = md_data[meme_name]
 
     with open(json_file, "w", encoding="utf-8") as f:
-        json.dump(json_data, f, ensure_ascii=False, indent=None, separators=(',', ':'))
+        json.dump(json_data, f, ensure_ascii=False, indent=None, separators=(",", ":"))
 
 
 emotion_data = parse_markdown_table(md_file)
