@@ -7,7 +7,7 @@
 </script>
 
 <Header />
-<div class="mt-28 flex items-center justify-center min-h-screen flex-col">
+<div class="mt-24 flex items-center justify-center min-h-screen flex-col">
   <YearAndOrigin />
   <Trending />
   <Sentiment />

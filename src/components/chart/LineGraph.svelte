@@ -12,11 +12,11 @@
     axisLeft,
     select,
   } from 'd3';
-  import {onMount} from 'svelte';
+  import { onMount } from 'svelte';
 
   export let data;
   export let index;
-  const width = 260;
+  const width = 265;
   const height = 120;
   const padding = 20;
 
@@ -36,7 +36,7 @@
   }
 
   const xScale = scaleTime()
-    .domain([months[0], months[months.length - 1]]) // Use time scale for x-axis
+    .domain([months[0], months[months.length - 1]]) 
     .range([padding, width - padding]);
 
   const yScale = scaleLinear()
@@ -58,7 +58,7 @@
     .tickSize(-width + 2 * padding);
 
   let tooltipVisible = false;
-  let tooltipData = {x: 0, y: 0, value: 0, date: ''};
+  let tooltipData = { x: 0, y: 0, value: 0, date: '' };
 
   function showTooltip(event) {
     const rect = event.target.getBoundingClientRect();
@@ -66,8 +66,7 @@
 
     const bisectDate = bisector((d) => d).left;
     const date = xScale.invert(mouseX);
-    const index = bisectDate(months, date, 1);
-    const dataIndex = index - 1;
+    const dataIndex = bisectDate(months, date, 1) - 1;
 
     if (dataIndex >= 0 && dataIndex < data.trend.length) {
       tooltipData = {
@@ -83,6 +82,13 @@
   function hideTooltip() {
     tooltipVisible = false;
   }
+
+
+  const colors = [
+    'stroke-teal-400', 'stroke-blue-600', 'stroke-green-600',
+    'stroke-yellow-500', 'stroke-slate-500', 'stroke-blue-400',
+    'stroke-indigo-400', 'stroke-pink-400', 'stroke-orange-600'
+  ];
 
   onMount(() => {
     const svg = select(`#chart-${index}`);
@@ -145,7 +151,7 @@
     <g class="y-axis" />
     <path
       d={pathLine(data.trend)}
-      stroke={`hsl(${(index * 360) / 9}, 100%, 50%)`}
+      class={colors[index % colors.length]}
       stroke-width="1.5"
       fill="none"
       stroke-linecap="round"

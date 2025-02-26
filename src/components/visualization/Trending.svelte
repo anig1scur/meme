@@ -19,21 +19,26 @@
   };
 </script>
 
-<div class="font-routedgothic mt-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
-  {#each pagedData() as data, index}
-    <LineGraph
-      {data}
-      {index}
-    />
-  {/each}
-</div>
+<section class="visualization">
+  <div class="font-routedgothic mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
+    {#each pagedData() as data, index}
+      <LineGraph
+        {data}
+        {index}
+      />
+    {/each}
+  </div>
 
-<div class="flex justify-center space-x-4 mt-6 mb-12">
-  {#each Array(totalPages).fill(0) as _, pageIndex}
-    <button on:click={() => goto(pageIndex + 1)}>
-      <div
-        class="w-4 h-4 rounded-full border-2 border-green-600 {currentPage === pageIndex + 1 ? 'bg-green-600 bg-opacity-50' : ''}"
-      ></div>
-    </button>
-  {/each}
-</div>
+  <div class="flex justify-center space-x-4 my-6">
+    {#each Array(totalPages).fill(0) as _, pageIndex}
+      <button on:click={() => goto(pageIndex + 1)}>
+        <div
+          class="w-4 h-4 rounded-full border-2 border-green-600 {currentPage === pageIndex + 1
+            ? 'bg-green-600 bg-opacity-50'
+            : ''}"
+        ></div>
+      </button>
+    {/each}
+  </div>
+  <div class="title">Google Trends of Memes Since 2004</div>
+</section>

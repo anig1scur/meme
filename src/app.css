@@ -100,3 +100,15 @@ line.gridline {
   stroke: #ddd;
   stroke-dasharray: 4;
 }
+
+a {
+  @apply hover:underline underline-offset-2;
+}
+
+section.visualization {
+  @apply flex flex-col items-center mb-6;
+}
+
+section.visualization .title {
+  @apply text-2xl text-gray-700 font-routedgothic;
+}

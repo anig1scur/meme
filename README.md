@@ -6,14 +6,13 @@ I love meme.
 
 1. `dynamic` or `static`
 2. emotion analysis
-3. history influence
 4. popular area
 5. popular time
 
 ## Another View
 
 1. 鬼畜 ?
-2. 二次元
+2. 表情包 ？
 
 ## Useful Links
 
@@ -36,4 +35,5 @@ I love meme.
 2. heatmap in different month
 3. source distribution
 4. emotion distribution
+5. timeline
 

@@ -72,36 +72,40 @@
     .range(['#FF265C', '#FFE700', '#4ED7E9', '#70ED02', '#9370DB', '#FF8C00', '#808080']);
 </script>
 
-<svg
-  {width}
-  {height}
->
-  <g transform={`translate(${margin.left},${margin.top})`}>
-    <Grid
-      gridType="xGrid"
-      {innerHeight}
-      {innerWidth}
-      scale={xScale}
-      ticks={xAxisTicks}
-    />
-    <Grid
-      gridType="yGrid"
-      {innerHeight}
-      {innerWidth}
-      scale={yScale}
-      ticks={validOrigins}
-    />
-
-    {#each $animatedMemeData as d}
-      <Bubble
-        cx={xScale(d.year)}
-        cy={yScale(d.origin)}
-        r={rScale(d.count)}
-        fill={colorScale(d.origin)}
-        data={d.memes}
-        origin={d.origin}
-        year={d.year}
+<section class="visualization">
+  <svg
+    class="mb-5"
+    {width}
+    {height}
+  >
+    <g transform={`translate(${margin.left},${margin.top})`}>
+      <Grid
+        gridType="xGrid"
+        {innerHeight}
+        {innerWidth}
+        scale={xScale}
+        ticks={xAxisTicks}
       />
-    {/each}
-  </g>
-</svg>
+      <Grid
+        gridType="yGrid"
+        {innerHeight}
+        {innerWidth}
+        scale={yScale}
+        ticks={validOrigins}
+      />
+
+      {#each $animatedMemeData as d}
+        <Bubble
+          cx={xScale(d.year)}
+          cy={yScale(d.origin)}
+          r={rScale(d.count)}
+          fill={colorScale(d.origin)}
+          data={d.memes}
+          origin={d.origin}
+          year={d.year}
+        />
+      {/each}
+    </g>
+  </svg>
+  <div class="title">The Origins of Memes: Platforms and Year</div>
+</section>
