@@ -3,6 +3,65 @@
   import {onMount} from 'svelte';
 
   let memeData = [];
+  let commonWords = [
+    'to',
+    'get',
+    'it',
+    'a',
+    'is',
+    'the',
+    'and',
+    'of',
+    'in',
+    'for',
+    'that',
+    'this',
+    'on',
+    'with',
+    'by',
+    'at',
+    'from',
+    'be',
+    'as',
+    'an',
+    'are',
+    'was',
+    'were',
+    'been',
+    'have',
+    'has',
+    'had',
+    'do',
+    'does',
+    'did',
+    'can',
+    'could',
+    'will',
+    'would',
+    'should',
+    'may',
+    'might',
+    'must',
+    'shall',
+    'their',
+    'they',
+    'he',
+    'she',
+    'his',
+    'her',
+    'them',
+    'its',
+    'our',
+    'your',
+    'but',
+    'or',
+    'one',
+    'if',
+    'not',
+    'am',
+  ];
+
+  const commonWordsSet = new Set(commonWords);
 
   const colors = [
     'text-pink-500',
@@ -34,7 +93,13 @@
   function highlightRandomWords(text: string) {
     const words = text.split(' ');
     return words
-      .map((word) => (Math.random() < 0.2 ? `<span class="${randomColor()} ${randomItalic()}">${word}</span>` : word))
+      .map((word) => {
+        const cleanWord = word.toLowerCase().replace(/[^\w]/g, '');
+        if (commonWordsSet.has(cleanWord) || Math.random() >= 0.4) {
+          return word;
+        }
+        return `<span class="${randomColor()} ${randomItalic()}">${word}</span>`;
+      })
       .join(' ');
   }
 
@@ -58,11 +123,82 @@
     return Math.random() < 0.5 ? graffitiTypes[Math.floor(Math.random() * graffitiTypes.length)] : '';
   }
 
+  let customizedMeme = {};
+
+  function getCustomizedMeme(meme) {
+    const id = meme.image || meme.name;
+    if (!customizedMeme[id]) {
+      customizedMeme[id] = {
+        highlightedAbout: meme.about ? highlightRandomWords(meme.about) : '',
+        randomGraffiti: randomGraffiti(),
+        randomChar: randomChar(),
+        fontSize: randomFontSize(18),
+        nameColor: randomColor(),
+        nameItalic: randomItalic(),
+        nameBold: randomBold(),
+      };
+    }
+    return customizedMeme[id];
+  }
+
+  let observer;
+
+  function setupIntersectionObserver() {
+    observer = new IntersectionObserver((entries) => {}, {
+      root: null,
+      rootMargin: '200px',
+      threshold: 0.01,
+    });
+  }
+
+  let loadedMemes = [];
+  let pageSize = 20;
+  let currentPage = 0;
+
+  function loadMoreMemes() {
+    const startIndex = currentPage * pageSize;
+    const endIndex = startIndex + pageSize;
+    const newMemes = memeData.slice(startIndex, endIndex);
+
+    if (newMemes.length > 0) {
+      loadedMemes = [...loadedMemes, ...newMemes];
+      currentPage++;
+    }
+  }
+
   onMount(async () => {
+    setupIntersectionObserver();
+
     const response = await fetch('/meme_details.json');
     memeData = await response.json();
-    console.log(memeData);
+
+    loadMoreMemes();
+
+    const scrollHandler = () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000) {
+        loadMoreMemes();
+      }
+    };
+
+    window.addEventListener('scroll', scrollHandler);
+
+    return () => {
+      window.removeEventListener('scroll', scrollHandler);
+      observer.disconnect();
+    };
   });
+
+  function handleElementVisible(node, meme) {
+    const id = meme.image || meme.name;
+    node.dataset.memeId = id;
+    observer.observe(node);
+
+    return {
+      destroy() {
+        observer.unobserve(node);
+      },
+    };
+  }
 </script>
 
 {#if !navigator.userAgent.includes('Mobile')}
@@ -74,22 +210,29 @@
 >
   {#each Array(5) as _, index}
     <div class="flex flex-col">
-      {#each memeData.filter((_, i) => i % 5 === index) as meme}
-        <div class="h-fit relative">
+      {#each loadedMemes.filter((_, i) => i % 5 === index) as meme}
+        {@const customize = getCustomizedMeme(meme)}
+        <div
+          class="h-fit relative"
+          use:handleElementVisible={meme}
+        >
           <img
+            loading="lazy"
             src={'top/images/' + meme.image}
             alt={meme.name}
-            class="w-full h-auto object-cover mb-2"
+            class="w-full h-auto object-cover mb-2 aspect-auto"
           />
           <div class="pb-8 relative">
-            <h3 class={'text-xl font-semibold text-gray-800 flex items-center' + randomFontSize(18)}>
-              <span class={randomColor() + ' ' + randomItalic() + ' ' + randomBold()}>{meme.name}</span>
-              <span class="ml-2">{randomChar()}</span>
+            <h3 class={'text-xl font-semibold text-gray-800 flex items-center ' + customize.fontSize}>
+              <span class={customize.nameColor + ' ' + customize.nameItalic + ' ' + customize.nameBold}
+                >{meme.name}</span
+              >
+              <span class="ml-2">{customize.randomChar}</span>
             </h3>
             {#if meme.about}
               <p class="text-gray-600 mt-2 relative text-base">
-                {@html highlightRandomWords(meme.about)}
-                {@html randomGraffiti()}
+                {@html customize.highlightedAbout}
+                {@html customize.randomGraffiti}
               </p>
             {/if}
             <p class="mt-4 text-sm text-gray-500">{meme.year} &nbsp; | &nbsp; {meme.origin}</p>
