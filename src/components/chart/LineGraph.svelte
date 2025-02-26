@@ -1,11 +1,11 @@
 <script>
   import {
     line,
-    curveMonotoneX,
     scaleTime,
     scaleLinear,
     easeLinear,
     timeFormat,
+    curveBasis,
     timeParse,
     axisBottom,
     bisector,
@@ -46,7 +46,7 @@
   const pathLine = line()
     .x((_, i) => xScale(months[i]))
     .y((d) => yScale(d))
-    .curve(curveMonotoneX);
+    .curve(curveBasis);
 
   const xAxis = axisBottom(xScale)
     .ticks(5)
@@ -94,8 +94,8 @@
       .attr('transform', `translate(0, ${height - padding})`)
       .attr('class', 'text-[10px]')
       .call((g) => {
-        g.select('.domain').attr('class', 'stroke-gray-100');
-        g.selectAll('.tick line').attr('class', 'stroke-gray-200');
+        g.select('.domain').remove();
+        g.selectAll('.tick line').attr('class', 'gridline');
         g.selectAll('.tick text').attr('class', 'fill-gray-400 translate-y-2');
       });
 
@@ -105,8 +105,8 @@
       .attr('transform', `translate(${padding}, 0)`)
       .attr('class', 'text-[10px]')
       .call((g) => {
-        g.select('.domain').attr('class', 'stroke-gray-200');
-        g.selectAll('.tick line').attr('class', 'stroke-gray-200');
+        g.select('.domain').remove();
+        g.selectAll('.tick line').attr('class', 'gridline');
         g.selectAll('.tick text').attr('class', 'fill-gray-400 -translate-x-1');
       });
 

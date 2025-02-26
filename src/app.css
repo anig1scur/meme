@@ -94,3 +94,9 @@ button {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+line.gridline {
+  stroke-width: 1px;
+  stroke: #ddd;
+  stroke-dasharray: 4;
+}

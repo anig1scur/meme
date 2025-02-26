@@ -104,7 +104,7 @@
             <Card {...meme} />
           {/each}
         </div>
-        <div class="w-full flex justify-center mt-1 text-sm font-icon">
+        <div class="w-full flex justify-center mt-1 text-sm font-icon italic">
           {Number(year) ? year.toPrecision(4) : year} | {origin}
         </div>
       </foreignObject>

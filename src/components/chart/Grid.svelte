@@ -41,11 +41,6 @@
 {/if}
 
 <style>
-  line.gridline {
-    stroke-width: 1px;
-    stroke: #ddd;
-    stroke-dasharray: 4;
-  }
   text.ticklabel {
     font-size: 11px;
     fill: #aaaaaa;
