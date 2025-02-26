@@ -32,7 +32,7 @@
   {#each Array(totalPages).fill(0) as _, pageIndex}
     <button on:click={() => goto(pageIndex + 1)}>
       <div
-        class="w-4 h-4 rounded-full {currentPage === pageIndex + 1 ? 'bg-green-600' : 'border-2 border-green-600'}"
+        class="w-4 h-4 rounded-full border-2 border-green-600 {currentPage === pageIndex + 1 ? 'bg-green-600 bg-opacity-50' : ''}"
       ></div>
     </button>
   {/each}

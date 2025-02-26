@@ -1,7 +1,7 @@
 <script>
   import {getContext} from 'svelte';
 
-  const {width, height, xScale, extents, config} = getContext('LayerCake');
+  const {width, height, xScale, config} = getContext('LayerCake');
 
   /** @type {Number} [lineLengthFactor=1.1] – How far to extend the lines from the circle's center. A value of `1` puts them at the circle's circumference. */
   export let lineLengthFactor = 1.1;
@@ -9,7 +9,9 @@
   /** @type {Number} [labelPlacementFactor=1.25] – How far to place the labels from the circle's center. A value of `1` puts them at the circle's circumference. */
   export let labelPlacementFactor = 1.25;
 
-  $: max = $xScale(Math.max(...$extents.x));
+  const globalMax = 5;
+
+  $: max = $xScale(globalMax);
 
   $: lineLength = max * lineLengthFactor;
   $: labelPlacement = max * labelPlacementFactor;
@@ -60,7 +62,7 @@
     <text
       text-anchor={anchor($config.x.length, i)}
       dy="0.35em"
-      font-size="12px"
+      class=" fill-gray-500 text-xs"
       transform="translate({labelPlacement * Math.cos(thisAngleSlice)}, {labelPlacement * Math.sin(thisAngleSlice)})"
       >{label}</text
     >
