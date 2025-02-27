@@ -33,7 +33,7 @@
   const yearStep = 2.5;
 
   $: xScale = scaleLinear().domain([minYear, maxYear]).range([-140, innerWidth]);
-  const xAxisTicks = ['<2000', 2005, 2010, 2015, 2020, 2025];
+  const xAxisTicks = ['Before 2000', 2005, 2010, 2015, 2020, 2025];
 
   const getYearBucket = (year) => Math.floor(year / yearStep) * yearStep;
 

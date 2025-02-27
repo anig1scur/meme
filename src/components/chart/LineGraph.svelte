@@ -12,7 +12,7 @@
     axisLeft,
     select,
   } from 'd3';
-  import { onMount } from 'svelte';
+  import {onMount} from 'svelte';
 
   export let data;
   export let index;
@@ -36,7 +36,7 @@
   }
 
   const xScale = scaleTime()
-    .domain([months[0], months[months.length - 1]]) 
+    .domain([months[0], months[months.length - 1]])
     .range([padding, width - padding]);
 
   const yScale = scaleLinear()
@@ -58,11 +58,12 @@
     .tickSize(-width + 2 * padding);
 
   let tooltipVisible = false;
-  let tooltipData = { x: 0, y: 0, value: 0, date: '' };
+  let tooltipData = {x: 0, y: 0, value: 0, date: ''};
 
   function showTooltip(event) {
-    const rect = event.target.getBoundingClientRect();
+    const rect = event.currentTarget.getBoundingClientRect();
     const mouseX = event.clientX - rect.left;
+    const mouseY = event.clientY - rect.top;
 
     const bisectDate = bisector((d) => d).left;
     const date = xScale.invert(mouseX);
@@ -70,8 +71,8 @@
 
     if (dataIndex >= 0 && dataIndex < data.trend.length) {
       tooltipData = {
-        x: event.pageX,
-        y: event.pageY,
+        x: mouseX + 30,
+        y: mouseY + 30,
         value: data.trend[dataIndex],
         date: formatDate(months[dataIndex]),
       };
@@ -83,11 +84,16 @@
     tooltipVisible = false;
   }
 
-
   const colors = [
-    'stroke-teal-400', 'stroke-blue-600', 'stroke-green-600',
-    'stroke-yellow-500', 'stroke-slate-500', 'stroke-blue-400',
-    'stroke-indigo-400', 'stroke-pink-400', 'stroke-orange-600'
+    'stroke-teal-400',
+    'stroke-blue-600',
+    'stroke-green-600',
+    'stroke-yellow-500',
+    'stroke-slate-500',
+    'stroke-blue-400',
+    'stroke-indigo-400',
+    'stroke-pink-400',
+    'stroke-orange-600',
   ];
 
   onMount(() => {
@@ -130,7 +136,7 @@
   });
 </script>
 
-<div class="bg-white rounded-lg p-4">
+<div class="rounded-lg p-4 relative">
   <a
     target="_blank"
     href={`https://trends.google.com/trends/explore?date=all&q=${data.name}`}
@@ -159,8 +165,8 @@
   </svg>
   {#if tooltipVisible}
     <div
-      class="absolute pointer-events-none bg-white p-2 rounded-lg text-xs shadow-lg border border-gray-200"
-      style="left: {tooltipData.x + 10}px; top: {tooltipData.y - 40}px"
+      class="absolute pointer-events-none w-20 z-10 bg-white p-2 rounded-lg text-xs shadow-lg border border-gray-200"
+      style="left: {tooltipData.x}px; top: {tooltipData.y}px"
     >
       <p class="text-gray-600">{tooltipData.date}</p>
       <p class="font-semibold text-blue-400">{tooltipData.value}</p>
