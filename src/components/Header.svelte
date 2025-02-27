@@ -14,9 +14,9 @@
   });
 
   const navItems = [
-    {path: '/', label: 'Gallery'},
+    {path: '/', label: 'Meme'},
+    {path: '/gallery', label: 'Gallery'},
     {path: '/random', label: 'Random'},
-    {path: '/meme', label: 'Meme'},
     {path: '/visualization', label: 'Visualization'},
   ];
 

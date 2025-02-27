@@ -27,6 +27,10 @@
       component={Home}
     />
     <Route
+      path="/gallery"
+      component={Gallery}
+    />
+    <Route
       path="/random"
       component={Random}
     />
