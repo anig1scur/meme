@@ -21,11 +21,8 @@
     });
 
     tl.fromTo('.book', {rotate: 0, scale: 0.8, x: '-30%'}, {rotate: -5, scale: 1.2, x: '-15%', duration: 2});
-
     tl.fromTo('.title', {opacity: 0, y: 30, scale: 0.8}, {opacity: 1, y: -60, scale: 1.2, duration: 1.5}, '<');
-
     tl.fromTo('.quote', {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 1.5});
-
     tl.fromTo('.author', {opacity: 0}, {opacity: 1, duration: 1});
   });
 </script>

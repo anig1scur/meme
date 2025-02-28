@@ -3,6 +3,7 @@
   import Footer from '../components/Footer.svelte';
 
   import Intro from '../components/timeline/intro.svelte';
+  import Intro2 from '../components/timeline/intro-2.svelte';
 </script>
 
 <Header />
@@ -12,5 +13,6 @@
 </div> -->
 <div class="font-routedgothic">
   <Intro />
+  <Intro2 />
 </div>
 <Footer />
