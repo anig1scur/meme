@@ -2,50 +2,84 @@
   import {onMount} from 'svelte';
   import gsap from 'gsap';
   import {ScrollTrigger} from 'gsap/ScrollTrigger';
-  import Gene from '../../assets/imgs/the_selfish_gene.jpg';
   gsap.registerPlugin(ScrollTrigger);
+
+  const images = Object.values(
+    import.meta.glob(['$assets/imgs/intro/**.jpg', '$assets/imgs/intro/**.png'], {
+      eager: true,
+      as: 'url',
+    }),
+  );
 
   let container;
 
   onMount(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container,
-        start: 'top top',
-        end: 'bottom center',
-        scrub: 1,
-        pin: true,
-        markers: false,
-      },
+    const imgElements = container.querySelectorAll('.img');
+
+    imgElements.forEach((img, index) => {
+      const leftPosition = (index / (imgElements.length - 1)) * 80;
+      img.style.left = `${leftPosition}%`;
+
+      gsap.to(img, {
+        y: Math.random() * 200 - 100,
+        scale: 1,
+        opacity: 1,
+        duration: 1.2,
+        ease: 'elastic.out(1, 0.75)',
+        scrollTrigger: {
+          trigger: `.trigger-${index}`,
+          start: 'top 80%',
+          end: 'bottom 60%',
+          scrub: 0.5,
+          // markers: true,
+        },
+      });
     });
-
-    tl.fromTo('.book', {rotate: 0, scale: 0.8, x: '-30%'}, {rotate: -5, scale: 1.2, x: '-15%', duration: 2});
-
-    tl.fromTo('.title', {opacity: 0, y: 30, scale: 0.8}, {opacity: 1, y: -60, scale: 1.2, duration: 1.5}, '<');
-
-    tl.fromTo('.quote', {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 1.5});
-
-    tl.fromTo('.author', {opacity: 0}, {opacity: 1, duration: 1});
   });
 </script>
 
 <div
-  class="h-screen relative font-routedgothic"
+  class="scroll-container"
   bind:this={container}
 >
-  <div class="text-gray-700 mx-auto w-[60%] h-screen flex justify-between items-center">
-    <img
-      alt="the_selfish_gene"
-      src={Gene}
-      class="book w-64 h-96 rounded relative shadow-lg"
-    />
+  {#each images as src, i}
+    <div class={`trigger-${i} h-48 w-full my-32`}></div>
 
-    <div class="w-3/5">
-      <h2 class="title text-5xl font-bold mb-6">«The Selfish Gene»</h2>
-      <p class="quote text-lg leading-relaxed mb-4">
-        The survival value of the God meme in the meme pool results from its great psychological appeal.
-      </p>
-      <p class="author text-base text-right italic">- Richard Dawkins</p>
-    </div>
-  </div>
+    <img
+      {src}
+      alt={`image ${i + 1}`}
+      class="img"
+    />
+  {/each}
+
+  <div class="text-overlay">Chronicle of Meme</div>
 </div>
+
+<style>
+  .scroll-container {
+    position: relative;
+    height: 100vh;
+  }
+
+  .img {
+    position: fixed;
+    bottom: 10%;
+    scale: 70%;
+    opacity: 0;
+    transform-origin: bottom center;
+    width: auto;
+    height: 30vh;
+    max-width: 40vw;
+  }
+
+  .text-overlay {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+    z-index: 10;
+  }
+</style>

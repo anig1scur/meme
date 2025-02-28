@@ -1,3 +1,4 @@
+import path from "path"
 import { defineConfig } from 'vite'
 
 import { svelte } from '@sveltejs/vite-plugin-svelte'
@@ -24,6 +25,11 @@ export default defineConfig({
       }
     })
   ],
+  resolve: {
+    alias: {
+      $assets: path.resolve(__dirname, 'src/assets'),
+    }
+  },
   esbuild: {
     drop: ['console', 'debugger'],
   },
