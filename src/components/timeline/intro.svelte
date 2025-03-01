@@ -79,7 +79,7 @@
           // markers: true,
         },
         y: '-40vh',
-        scale: 0.6,
+        scale: 0.7,
         rotate: (Math.random() * 2 - 1) * 20,
         ease: 'power1.out',
       });
@@ -93,8 +93,21 @@
   });
 
   onMount(() => {
+    gsap.to(container, {
+      scrollTrigger: {
+        trigger: container,
+        start: '95% center',
+        end: 'bottom top',
+        scrub: true,
+        // markers: true,
+      },
+      opacity: 0,
+      ease: 'power1.out',
+    });
+  });
+
+  onMount(() => {
     const figureElements = container.querySelectorAll('.figure');
-    console.log(figureElements);
     figureElements.forEach((fig, index) => {
       const leftPosition = (index / (figureElements.length - 1)) * 80;
       fig.style.left = `${leftPosition}%`;
@@ -117,11 +130,12 @@
   });
 </script>
 
+<div class="h-screen fixed top-0 bg-[#FFCA58] w-full"></div>
+
 <div
-  class="relative h-[250vh]"
+  class="relative h-[250vh] intro"
   bind:this={container}
 >
-  <div class="h-screen fixed top-0 bg-[#FFCA58] w-full"></div>
   <div class="relative">
     <img
       src={Title}
