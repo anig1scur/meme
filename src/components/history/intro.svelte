@@ -133,7 +133,8 @@
 <div class="h-screen fixed top-0 bg-[#FFCA58] w-full"></div>
 
 <div
-  class="relative h-[250vh] intro"
+  id="intro"
+  class="relative h-[250vh]"
   bind:this={container}
 >
   <div class="relative">

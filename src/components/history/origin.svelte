@@ -3,7 +3,8 @@
   import gsap from 'gsap';
   import {ScrollTrigger} from 'gsap/ScrollTrigger';
   import Gene from '../../assets/imgs/the_selfish_gene.jpg';
-  import Book from './book.svelte';
+  import Book from './Book.svelte';
+  import Title from './Title.svelte';
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -28,7 +29,7 @@
   });
 </script>
 
-<div bind:this={container}>
+<div bind:this={container} id="origin">
   <!-- <div class="font-icon font-semibold absolute right-[10%] h-full z-10">
     <div class="h-full absolute w-0.5 bg-yellow-700"></div>
     <div class="absolute mt-24 ml-2 font-serif text-3xl">1976</div>
@@ -42,8 +43,8 @@
 
     <!-- <Book image={Gene} /> -->
 
-    <div class="w-3/5 text-yellow-800">
-      <h2 class="title text-5xl font-bold mb-6">«The Selfish Gene»</h2>
+    <div class="w-3/5 text-yellow-900 font-georgia">
+      <Title className="title" text="The Selfish Gene"/>
       <p class="quote text-lg leading-relaxed mb-4">
         The survival value of the God meme in the meme pool results from its great psychological appeal.
       </p>
