@@ -3,6 +3,7 @@
   import gsap from 'gsap';
   import {ScrollTrigger} from 'gsap/ScrollTrigger';
   import Title from '$assets/imgs/chronicle_of_meme.png';
+  import Grass from '../history/Grass.svelte';
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -109,12 +110,12 @@
   onMount(() => {
     const figureElements = container.querySelectorAll('.figure');
     figureElements.forEach((fig, index) => {
-      const leftPosition = (index / (figureElements.length - 1)) * 80;
+      const leftPosition = (index / (figureElements.length - 1)) * 85;
       fig.style.left = `${leftPosition}%`;
 
       gsap.to(fig, {
-        y: Math.random() * 100 - 100,
-        scale: 1,
+        y: Math.random() * 100 - 90,
+        scale: Math.random() * (1.1 - 0.9) + 0.9,
         opacity: 1,
         left: `${leftPosition}%`,
         ease: 'power2.in',
@@ -141,6 +142,24 @@
       class="title-char w-[80%] mt-[15vh] md:mt-[30vh] mx-auto md:w-[75%] h-auto fixed left-0 right-0"
     />
   </div>
+
+  <div class="absolute z-[1]">
+    <div class="fixed w-24 -bottom-2 text-[#845925] left-36">
+      <Grass />
+    </div>
+    <div class="fixed w-12 -bottom-2 text-[#a17540] left-32">
+      <Grass />
+    </div>
+
+    <div class="fixed w-24 left-[70%] -bottom-2 text-white">
+      <Grass />
+    </div>
+
+    <div class="fixed w-12 left-[75%] -bottom-2 text-white">
+      <Grass />
+    </div>
+  </div>
+
   <div
     class="c1 fixed -left-[12.5%] top-[60vh] md:top-[70vh] h-[70vh] w-[110vw] rounded-[50%] bg-gradient-to-b from-[#fff4dd] to-[#e4b040] bg-[linear-gradient(90deg, #fff4dd 0.00%, #e4b040 100.00%)]"
   />
@@ -152,16 +171,18 @@
     <img
       {src}
       alt={`char ${i}`}
-      class={`char char-${i} fixed h-auto z-10`}
+      class={`char char-${i} fixed h-auto z-10 `}
     />
   {/each}
+
   <div class="h-16" />
+
   {#each figures as src, i}
     <div class={`trigger-${i} h-16 w-full mt-16`}></div>
     <img
       {src}
       alt={`figure ${i}`}
-      class={`figure figure-${i}`}
+      class={`figure figure-${i} z-10`}
     />
   {/each}
 </div>
@@ -174,8 +195,8 @@
     opacity: 0;
     width: auto;
     height: 30vh;
+    object-fit: contain;
     max-width: 40vw;
-
     filter: drop-shadow(6px 0 0 white) drop-shadow(-6px 0 0 white) drop-shadow(0 6px 0 white)
       drop-shadow(0 -6px 0 white);
   }
