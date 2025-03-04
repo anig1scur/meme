@@ -36,5 +36,16 @@ export default defineConfig({
   build: {
     minify: "esbuild",
     chunkSizeWarningLimit: 800,
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          if (/\.(png|jpe?g|gif|svg|webp|avif)$/.test(assetInfo.name)) {
+            return 'assets/[name][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        }
+      }
+    }
   }
+
 })

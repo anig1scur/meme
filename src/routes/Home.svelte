@@ -2,13 +2,15 @@
   import Header from '../components/Header.svelte';
   import Footer from '../components/Footer.svelte';
 
-  import Intro from '../components/history/Intro.svelte';
   import Origin from '../components/history/Origin.svelte';
+  import Intro from '../components/history/Intro.svelte';
   import Timeline from '../components/history/Timeline.svelte';
 </script>
 
 <Header />
 <div class="font-routedgothic">
+  <div class="h-screen fixed top-0 bg-[#FFCA58] w-full"></div>
+
   <Intro />
   <Timeline />
   <div id="history">
@@ -67,9 +69,7 @@
     ></section>
   </div>
 </div>
-<section
-class="section"
-></section>
+<section class="section"></section>
 <Footer />
 
 <style>

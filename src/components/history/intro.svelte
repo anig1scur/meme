@@ -130,8 +130,6 @@
   });
 </script>
 
-<div class="h-screen fixed top-0 bg-[#FFCA58] w-full"></div>
-
 <div
   id="intro"
   class="relative h-[250vh]"
