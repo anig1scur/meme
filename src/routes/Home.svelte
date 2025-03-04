@@ -9,7 +9,10 @@
 
 <Header />
 <div class="font-routedgothic">
-  <div class="h-screen fixed top-0 bg-[#FFCA58] w-full"></div>
+  <div
+    id="home-bg"
+    class="h-screen fixed top-0 bg-[#FFCA58] w-full"
+  ></div>
 
   <Intro />
   <Timeline />

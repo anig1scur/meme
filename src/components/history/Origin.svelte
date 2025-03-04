@@ -33,7 +33,20 @@
     });
     tl.fromTo('.title', {opacity: 0, y: 30, scale: 0.5}, {opacity: 1, y: -60, scale: 1, duration: 1.5}, '<');
     tl.fromTo('.quote', {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 1.5});
-    tl.fromTo('.author', {opacity: 0}, {opacity: 1, duration: 1});
+    tl.fromTo('.author', {opacity: 0}, {opacity: 1, duration: 1})
+      .to('.book', {
+        scale: 5,
+        rotate: '75deg',
+        duration: 10,
+      })
+      .to(
+        '#home-bg',
+        {
+          backgroundColor: '#6AAC5F',
+          duration: 6,
+        },
+        '-=4',
+      );
   });
 </script>
 
@@ -42,7 +55,7 @@
   id="the_selfish_gene"
 >
   <div class="text-yellow-700 mx-auto w-[60%] h-screen flex gap-12 justify-between items-center">
-    <div class="relative">
+    <div class="relative z-10">
       <Book image={Gene} />
       <div class=" -z-10 desc absolute opacity-0 left-[80%] translate-x-12 w-[40vw] flex items-center gap-3">
         <div class="w-16 h-16 rotate-[160deg]">
