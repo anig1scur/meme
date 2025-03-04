@@ -16,14 +16,6 @@
   <div id="history">
     <Origin />
     <section
-      id="the_selfish_gene"
-      class="section"
-    >
-      <h2>1</h2>
-      <p>1...</p>
-    </section>
-
-    <section
       id="early_internet_memes"
       class="section"
     >

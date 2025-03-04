@@ -1,9 +1,8 @@
 <script>
-  import {onMount} from 'svelte';
 
-  export let bookWidth = 200;
-  export let bookHeight = 300;
-  export let coverColor = '#6198ff';
+  export let bookWidth = 250;
+  export let bookHeight = 380;
+  export let coverColor = '#5e995c';
   export let image = '';
   export let altText = 'Book cover';
   export let link = '';
@@ -21,8 +20,8 @@
     const xPercent = (x / rect.width) * 100;
     const yPercent = (y / rect.height) * 100;
 
-    const rotateY = ((xPercent - 50) / 50) * 10; // Max 10 degrees
-    const rotateX = -((yPercent - 50) / 50) * 5; // Max 5 degrees, inverted
+    const rotateY = ((xPercent - 50) / 50) * 35;
+    const rotateX = -((yPercent - 50) / 50) * 10;
 
     bookElement.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
   }
@@ -34,24 +33,16 @@
   function handleMouseLeave() {
     isHovering = false;
     if (bookElement) {
-      bookElement.style.transform = 'rotateY(-30deg) rotateX(0deg)';
+      bookElement.style.transform = 'rotateY(0deg) rotateX(0deg)';
     }
   }
-
-  onMount(() => {
-    setTimeout(() => {
-      if (bookElement) {
-        bookElement.style.transform = 'rotateY(-30deg)';
-      }
-    }, 0);
-  });
 </script>
 
 <a
   href={link}
   target="_blank"
   rel="noreferrer noopener"
-  class="inline-flex items-center justify-center perspective-600"
+  class="inline-flex items-center justify-center perspective-600 book"
   on:mousemove={handleMouseMove}
   on:mouseenter={handleMouseEnter}
   on:mouseleave={handleMouseLeave}
@@ -97,9 +88,9 @@
     <div
       class="absolute top-0 left-0 w-full h-full rounded-r shadow-xl"
       style="
-        transform: translateZ(-15px); 
-        background-color: {coverColor}; 
-        box-shadow: -10px 0 50px 10px #666;
+        transform: translateZ(-15px);
+        background-color: {coverColor};
+        box-shadow: -10px 0 50px 10px #0000006a;
       "
     ></div>
   </div>
@@ -112,6 +103,5 @@
 
   .preserve-3d {
     transform-style: preserve-3d;
-    transform: rotateY(0deg);
   }
 </style>

@@ -22,7 +22,11 @@
       },
     });
 
-    tl.fromTo('.book', {rotate: 0, scale: 0.8, x: '-30%'}, {rotate: -5, scale: 1.2, x: '-15%', duration: 2});
+    tl.fromTo(
+      '.book',
+      {scale: 0.8, x: '-30%', rotateX: '10deg', rotateY: '0deg'},
+      {scale: 1.2, x: '-15%', rotateX: '-0.2deg', rotateY: '12deg', rotateZ: -5},
+    );
     tl.fromTo('.title', {opacity: 0, y: 30, scale: 0.5}, {opacity: 1, y: -60, scale: 1, duration: 1.5}, '<');
     tl.fromTo('.quote', {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 1.5});
     tl.fromTo('.author', {opacity: 0}, {opacity: 1, duration: 1});
@@ -31,20 +35,20 @@
 
 <div
   bind:this={container}
-  id="origin"
+  id="the_selfish_gene"
 >
   <!-- <div class="font-icon font-semibold absolute right-[10%] h-full z-10">
     <div class="h-full absolute w-0.5 bg-yellow-700"></div>
     <div class="absolute mt-24 ml-2 font-serif text-3xl">1976</div>
   </div> -->
   <div class="text-yellow-700 mx-auto w-[60%] h-screen flex gap-12 justify-between items-center">
-    <img
+    <!-- <img
       alt="the_selfish_gene"
       src={Gene}
       class="book w-64 h-96 rounded relative shadow-lg"
-    />
+    /> -->
 
-    <!-- <Book image={Gene} /> -->
+    <Book image={Gene} />
 
     <div class=" text-yellow-900 font-georgia flex flex-col w-1/2 items-end">
       <Title

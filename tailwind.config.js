@@ -19,8 +19,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      routedgothic: ['"RoutedGothic"',],
-      icon: ['"Icon"', 'serif'],
+      routedgothic: ['RoutedGothic',],
+      icon: ['Icon', 'serif'],
       georgia: ['Georgia', 'serif'],
     }
   }
