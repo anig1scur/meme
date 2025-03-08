@@ -1,7 +1,7 @@
 <script>
-
-  export let bookWidth = 250;
-  export let bookHeight = 380;
+  import {onMount} from 'svelte';
+  export let bookWidth = 300;
+  export let bookHeight = 480;
   export let coverColor = '#5e995c';
   export let image = '';
   export let altText = 'Book cover';
@@ -9,6 +9,7 @@
 
   let bookElement;
   let isHovering = false;
+  let initialTransform = '';
 
   function handleMouseMove(event) {
     if (!bookElement || !isHovering) return;
@@ -27,29 +28,44 @@
   }
 
   function handleMouseEnter() {
+    if (!initialTransform && bookElement) {
+      initialTransform = window.getComputedStyle(bookElement).transform;
+      if (initialTransform === 'none') {
+        initialTransform = '';
+      }
+    }
     isHovering = true;
   }
 
   function handleMouseLeave() {
     isHovering = false;
     if (bookElement) {
-      bookElement.style.transform = 'rotateY(0deg) rotateX(0deg)';
+      bookElement.style.transform = initialTransform;
     }
   }
+
+  onMount(() => {
+    if (bookElement) {
+      initialTransform = window.getComputedStyle(bookElement).transform;
+      if (initialTransform === 'none') {
+        initialTransform = '';
+      }
+    }
+  });
 </script>
 
 <a
   href={link}
   target="_blank"
   rel="noreferrer noopener"
-  class="inline-flex items-center justify-center perspective-600 book"
+  class="inline-flex items-center justify-center perspective-600 book-container"
   on:mousemove={handleMouseMove}
   on:mouseenter={handleMouseEnter}
   on:mouseleave={handleMouseLeave}
 >
   <div
     bind:this={bookElement}
-    class="relative preserve-3d transition-transform duration-300"
+    class="relative preserve-3d transition-transform duration-300 book z-10"
     style="width: {bookWidth}px; height: {bookHeight}px;"
   >
     <!-- Front cover -->

@@ -71,7 +71,7 @@
   </div>
 {:else}
   <header
-    class="font-routedgothic fixed p-4 py-5 top-0 left-0 w-full h-[3rem] bg-green-500 z-50 border-y-[3px] border-green-950 flex items-center justify-center space-x-4"
+    class="font-routedgothic header fixed p-4 py-5 top-0 left-0 w-full h-[3rem] bg-green-500 z-50 border-y-[3px] border-green-950 flex items-center justify-center space-x-4"
   >
     {#each navItems as item}
       <button

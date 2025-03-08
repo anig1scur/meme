@@ -5,6 +5,26 @@
   import Origin from '../components/history/Origin.svelte';
   import Intro from '../components/history/Intro.svelte';
   import Timeline from '../components/history/Timeline.svelte';
+
+  import gsap from 'gsap';
+  import {onMount} from 'svelte';
+
+  import {ScrollTrigger} from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  onMount(() => {
+    gsap.to('.header', {
+      scrollTrigger: {
+        trigger: '#history',
+        start: 'top bottom',
+        end: 'top top',
+        scrub: true,
+        // markers: true,
+      },
+      opacity: 0,
+      translateY: -60,
+    });
+  });
 </script>
 
 <Header />

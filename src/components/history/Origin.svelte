@@ -6,6 +6,7 @@
   import Line from './Line.svelte';
   import Book from './Book.svelte';
   import Title from './Title.svelte';
+  import MemeToDNA from '../animation/meme_to_DNA.svelte';
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -16,34 +17,53 @@
       scrollTrigger: {
         trigger: container,
         start: 'top top',
-        end: 'bottom center',
-        scrub: 1,
+        end: 'bottom top',
+        scrub: true,
         pin: true,
-        markers: false,
+        // markers: true,
       },
     });
 
-    tl.fromTo(
-      '.book',
-      {scale: 0.8, x: '-30%', rotateX: '10deg', rotateY: '0deg'},
-      {scale: 1.2, x: '-15%', rotateX: '-0.2deg', rotateY: '12deg', rotateZ: -5, zIndex: 10},
-    ).to('.desc', {
-      opacity: 1,
-      ease: 'power1.out',
-    });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.book',
+          start: 'top 60%',
+          end: 'top top',
+          scrub: true,
+          // pin: true,
+          // markers: true,
+        },
+      })
+      .fromTo(
+        '.book',
+        {delay: 0, scale: 0.7, rotateX: '3deg', rotateY: '-25deg'},
+        {scale: 1, rotateX: '0deg', rotateY: '12deg'},
+      )
+      .to('.desc', {
+        opacity: 1,
+        ease: 'power1.out',
+      });
+
+    // gsap.set( '#home-bg', {
+    //   delay:0,
+    //   background:"linear-gradient(to top, #FFF8EA 0%,#FFD16E 47%,#FFCA58 100%)",
+    //   // background:"linear-gradient(217deg, #FFCA58, #FFCA58 70.71%),  linear-gradient(127deg, #FFCA58, #FFCA58 70.71%), linear-gradient(336deg, #FFCA58, rgba(0,0,255,0) 70.71%)"
+    // })
     tl.fromTo('.title', {opacity: 0, y: 30, scale: 0.5}, {opacity: 1, y: -60, scale: 1, duration: 1.5}, '<');
     tl.fromTo('.quote', {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 1.5});
     tl.fromTo('.author', {opacity: 0}, {opacity: 1, duration: 1})
-      .to('.book', {
-        scale: 5,
-        rotate: '75deg',
-        duration: 10,
-      })
+      // .to('.book-container', {
+      //   scale: 2,
+      //   rotate: '75deg',
+      //   duration: 10,
+      // })
       .to(
         '#home-bg',
         {
-          backgroundColor: '#6AAC5F',
-          duration: 6,
+          // backgroundColor: "#668960",
+          // background:"linear-gradient(to top, #F6FFF5 0%,#B1E6A9 47%,#6AAC5F 100%)",
+          duration: 2,
         },
         '-=4',
       );
@@ -54,7 +74,7 @@
   bind:this={container}
   id="the_selfish_gene"
 >
-  <div class="text-yellow-700 mx-auto w-[60%] h-screen flex gap-12 justify-between items-center">
+  <div class="text-yellow-700 w-[80%] mx-auto h-screen flex gap-24 justify-center items-center">
     <div class="relative z-10">
       <Book image={Gene} />
       <div class=" -z-10 desc absolute opacity-0 left-[80%] translate-x-12 w-[40vw] flex items-center gap-3">
@@ -68,7 +88,9 @@
         </div>
       </div>
     </div>
-    <div class=" text-yellow-900 font-georgia flex flex-col w-1/2 items-end">
+    <MemeToDNA />
+
+    <div class=" text-yellow-900 font-georgia flex flex-col items-end max-w-xl opacity-0">
       <Title
         className="title"
         text="The Selfish Gene"
