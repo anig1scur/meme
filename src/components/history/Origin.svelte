@@ -28,12 +28,17 @@
       .timeline({
         scrollTrigger: {
           trigger: '.book',
-          start: 'top 60%',
+          start: 'top 80%',
           end: 'top top',
           scrub: true,
           // pin: true,
           // markers: true,
         },
+      })
+      .to('.dna', {
+        scale: 1.4,
+        rotate: '25deg',
+        translateY: -30,
       })
       .fromTo(
         '.book',
@@ -52,29 +57,24 @@
     // })
     tl.fromTo('.title', {opacity: 0, y: 30, scale: 0.5}, {opacity: 1, y: -60, scale: 1, duration: 1.5}, '<');
     tl.fromTo('.quote', {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 1.5});
-    tl.fromTo('.author', {opacity: 0}, {opacity: 1, duration: 1})
-      // .to('.book-container', {
-      //   scale: 2,
-      //   rotate: '75deg',
-      //   duration: 10,
-      // })
-      .to(
-        '#home-bg',
-        {
-          // backgroundColor: "#668960",
-          // background:"linear-gradient(to top, #F6FFF5 0%,#B1E6A9 47%,#6AAC5F 100%)",
-          duration: 2,
-        },
-        '-=4',
-      );
+    tl.fromTo('.author', {opacity: 0}, {opacity: 1, duration: 1}).to(
+      '#home-bg',
+      {
+        // backgroundColor: "#668960",
+        // background:"linear-gradient(to top, #F6FFF5 0%,#B1E6A9 47%,#6AAC5F 100%)",
+        duration: 2,
+      },
+      '-=4',
+    );
   });
 </script>
 
-<div
-  bind:this={container}
-  id="the_selfish_gene"
->
-  <div class="text-yellow-700 w-[80%] mx-auto h-screen flex gap-24 justify-center items-center">
+<div id="the_selfish_gene">
+  <MemeToDNA />
+  <div
+    bind:this={container}
+    class="text-yellow-700 w-[80%] mx-auto h-screen flex gap-24 justify-center items-center"
+  >
     <div class="relative z-10">
       <Book image={Gene} />
       <div class=" -z-10 desc absolute opacity-0 left-[80%] translate-x-12 w-[40vw] flex items-center gap-3">
@@ -88,9 +88,8 @@
         </div>
       </div>
     </div>
-    <MemeToDNA />
 
-    <div class=" text-yellow-900 font-georgia flex flex-col items-end max-w-xl opacity-0">
+    <div class=" text-yellow-900 font-georgia flex flex-col items-end max-w-xl">
       <Title
         className="title"
         text="The Selfish Gene"
