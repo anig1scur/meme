@@ -3,6 +3,7 @@
   import Footer from '../components/Footer.svelte';
 
   import Origin from '../components/history/Origin.svelte';
+  import CircleTransition from '../components/history/CircleTransition.svelte';
   import Intro from '../components/history/Intro.svelte';
   import Timeline from '../components/history/Timeline.svelte';
 
@@ -38,6 +39,12 @@
   <Timeline />
   <div id="history">
     <Origin />
+    <CircleTransition
+      triggerElement={'#the_selfish_gene'}
+      duration={10}
+      color="white"
+    />
+
     <section
       id="early_internet_memes"
       class="section"

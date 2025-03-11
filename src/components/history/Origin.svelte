@@ -19,7 +19,6 @@
         start: 'top top',
         end: 'bottom top',
         scrub: true,
-        pin: true,
         // markers: true,
       },
     });
@@ -69,11 +68,14 @@
   });
 </script>
 
-<div id="the_selfish_gene">
+<div
+  id="the_selfish_gene"
+  class="h-fit relative"
+>
   <MemeToDNA />
   <div
     bind:this={container}
-    class="text-yellow-700 w-[80%] mx-auto h-screen flex gap-24 justify-center items-center"
+    class="text-yellow-700 w-[80%] mx-auto h-screen flex gap-24 justify-center items-center pb-12"
   >
     <div class="relative z-10">
       <Book image={Gene} />
