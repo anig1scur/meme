@@ -43,16 +43,17 @@
       triggerElement={'#the_selfish_gene'}
       duration={10}
       color="white"
-    />
-
-    <section
-      id="early_internet_memes"
-      class="section"
     >
-      <h2>2</h2>
-      <p>2...</p>
-    </section>
+   TEST
+    </CircleTransition>
 
+       <section
+        id="early_internet_memes"
+        class="section"
+      >
+        <h2>2</h2>
+        <p>2...</p>
+      </section>
     <section
       id="rise_of_video_and_social_media_memes"
       class="section"
@@ -96,7 +97,9 @@
 
 <style>
   .section {
+    position: relative;
     min-height: 200vh;
+    z-index: 1;
     padding: 2rem;
     display: flex;
     flex-direction: column;

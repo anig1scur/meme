@@ -7,7 +7,6 @@
   export let timelineData = [];
   export let scrollerRef = null;
 
-  // Add idx property to each timeline item
   timelineData = timelineData.map((item, idx) => ({...item, idx}));
 
   let activeSegment = timelineData[0]?.id;
@@ -34,8 +33,9 @@
     timelineData.forEach((segment, index) => {
       const trigger = ScrollTrigger.create({
         trigger: `#${segment.id}`,
-        start: 'top center',
-        end: 'bottom center',
+        start: 'top top+=10',
+        end: 'bottom-=10 center',
+        scrub: true,
         onEnter: () => {
           activeSegment = segment.id;
           activeIdx = segment.idx;
@@ -45,6 +45,7 @@
           activeIdx = segment.idx;
         },
         onUpdate: (self) => {
+          console.log(segment, 'update');
           if (self.isActive) {
             if (index < timelineData.length - 1) {
               const nextPos = timelineData[index + 1].position;

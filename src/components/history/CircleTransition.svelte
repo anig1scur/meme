@@ -2,50 +2,72 @@
   import {onMount, onDestroy} from 'svelte';
   import {gsap} from 'gsap';
   import {ScrollTrigger} from 'gsap/ScrollTrigger';
-
   gsap.registerPlugin(ScrollTrigger);
-
   export let triggerElement;
   export let duration = 10;
   export let color = '#3498db';
-
-  let circle;
-
+  let clipContainer;
+  let circleSize = 0;
   onMount(() => {
     if (!triggerElement) return;
-
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: triggerElement,
         start: 'bottom bottom',
         end: `+=${duration * 50}%`,
         scrub: true,
-        pin: true,
+        // pin: true,
         toggleActions: 'play none none reverse',
+        onUpdate: (self) => {
+          // Update the circle size based on scroll progress
+          circleSize = self.progress * 300;
+          if (clipContainer) {
+            clipContainer.style.clipPath = `circle(${circleSize}% at 0% 100%)`;
+          }
+        },
       },
     });
-    tl.fromTo(circle, {scale: 0}, {scale: 250, ease: 'power2.inOut'});
   });
-
   onDestroy(() => {
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
   });
 </script>
 
-<div
-  bind:this={circle}
-  class="circle"
-  style="background-color: {color};"
-></div>
+<div class="wrapper">
+  <div
+    bind:this={clipContainer}
+    class="clip-container"
+    style="background-color: {color}; clip-path: circle(0% at 0% 100%);"
+  >
+    <div class="content">
+      <slot></slot>
+    </div>
+  </div>
+</div>
 
 <style>
-  .circle {
+  .wrapper {
     position: fixed;
-    left: -100px;
-    bottom: -100px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    transform: scale(0);
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+  }
+
+  .clip-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content {
+    position: relative;
   }
 </style>

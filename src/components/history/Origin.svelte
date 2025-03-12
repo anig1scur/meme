@@ -19,6 +19,7 @@
         start: 'top top',
         end: 'bottom top',
         scrub: true,
+        pin: true,
         // markers: true,
       },
     });
@@ -54,23 +55,29 @@
     //   background:"linear-gradient(to top, #FFF8EA 0%,#FFD16E 47%,#FFCA58 100%)",
     //   // background:"linear-gradient(217deg, #FFCA58, #FFCA58 70.71%),  linear-gradient(127deg, #FFCA58, #FFCA58 70.71%), linear-gradient(336deg, #FFCA58, rgba(0,0,255,0) 70.71%)"
     // })
-    tl.fromTo('.title', {opacity: 0, y: 30, scale: 0.5}, {opacity: 1, y: -60, scale: 1, duration: 1.5}, '<');
-    tl.fromTo('.quote', {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 1.5});
-    tl.fromTo('.author', {opacity: 0}, {opacity: 1, duration: 1}).to(
-      '#home-bg',
-      {
-        // backgroundColor: "#668960",
-        // background:"linear-gradient(to top, #F6FFF5 0%,#B1E6A9 47%,#6AAC5F 100%)",
-        duration: 2,
-      },
-      '-=4',
+    tl.fromTo(
+      '.title',
+      {translateX: 25, opacity: 0, y: 30, scale: 0.5},
+      {translateX: -25, opacity: 1, y: -60, scale: 1, duration: 1.5},
+      '<',
     );
+    tl.fromTo('.quote', {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 1.5}, '=');
+    tl.fromTo('.author', {opacity: 0}, {opacity: 1, duration: 1});
+    // .to(
+    //   '#home-bg',
+    //   {
+    //     backgroundColor: "#668960",
+    //     // background:"linear-gradient(to top, #F6FFF5 0%,#B1E6A9 47%,#6AAC5F 100%)",
+    //     duration: 2,
+    //   },
+    //   '-=4',
+    // );
   });
 </script>
 
 <div
   id="the_selfish_gene"
-  class="h-fit relative"
+  class="relative"
 >
   <MemeToDNA />
   <div
