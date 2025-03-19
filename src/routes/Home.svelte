@@ -6,6 +6,7 @@
   import CircleTransition from '../components/history/CircleTransition.svelte';
   import Intro from '../components/history/Intro.svelte';
   import Timeline from '../components/history/Timeline.svelte';
+  import Ball from '../components/misc/ball.svelte';
 
   import gsap from 'gsap';
   import {onMount} from 'svelte';
@@ -14,19 +15,31 @@
   gsap.registerPlugin(ScrollTrigger);
 
   onMount(() => {
-    gsap.to('.header', {
-      scrollTrigger: {
-        trigger: '#history',
-        start: 'top bottom',
-        end: 'top top',
-        scrub: true,
-        // markers: true,
-      },
-      opacity: 0,
-      translateY: -60,
-    });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '#history',
+          start: 'top bottom',
+          end: 'top top',
+          scrub: true,
+          // markers: true,
+        },
+      })
+      .to('.header', {
+        opacity: 0,
+        translateY: -60,
+      })
+      .to(
+        '#ball',
+        {
+          opacity: 1,
+        },
+        '>',
+      );
   });
 </script>
+
+<Ball />
 
 <Header />
 <div class="font-routedgothic">
@@ -44,16 +57,16 @@
       duration={10}
       color="white"
     >
-   TEST
+      TEST
     </CircleTransition>
 
-       <section
-        id="early_internet_memes"
-        class="section"
-      >
-        <h2>2</h2>
-        <p>2...</p>
-      </section>
+    <section
+      id="early_internet_memes"
+      class="section"
+    >
+      <h2>2</h2>
+      <p>2...</p>
+    </section>
     <section
       id="rise_of_video_and_social_media_memes"
       class="section"

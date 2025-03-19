@@ -18,6 +18,8 @@
     "vite-plugin-pwa": "^0.21.1"
   },
   "dependencies": {
+    "@threlte/core": "^8.0.1",
+    "@threlte/extras": "^9.0.2",
     "cssnano": "^7.0.6",
     "d3": "^7.9.0",
     "dotenv": "^16.4.7",
@@ -26,6 +28,7 @@
     "layercake": "^8.4.2",
     "sass": "^1.84.0",
     "svelte": "^5.20.1",
-    "svelte-routing": "^2.13.0"
+    "svelte-routing": "^2.13.0",
+    "three": "^0.174.0"
   }
 }

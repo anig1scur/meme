@@ -32,7 +32,11 @@
       },
     });
 
-    tl.to('.path1', {rotate: -90, duration: 4, transformOrigin: 'center', translateX: '165%', translateY: '-74%'})
+    tl.to('#home-bg', {
+      background: 'linear-gradient(to bottom, #F7FFF5, #D6EED0)',
+      duration: 2,
+    })
+      .to('.path1', {rotate: -90, duration: 4, transformOrigin: 'center', translateX: '165%', translateY: '-74%'}, '=')
       .to('.path2', {rotate: 90, duration: 4, transformOrigin: 'center', translateX: '-75%', translateY: '16%'}, '<')
       .to('.path3, .path4', {opacity: 0, duration: 1.8}, '<')
       .delay(3)

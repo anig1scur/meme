@@ -28,7 +28,7 @@
       .timeline({
         scrollTrigger: {
           trigger: '.book',
-          start: 'top 80%',
+          start: 'top 75%',
           end: 'top top',
           scrub: true,
           // pin: true,
@@ -36,15 +36,16 @@
         },
       })
       .to('.dna', {
-        scale: 1.4,
-        rotate: '25deg',
+        scale: 1.8,
+        rotate: '30deg',
         translateY: -30,
       })
-      .fromTo(
-        '.book',
-        {delay: 0, scale: 0.7, rotateX: '3deg', rotateY: '-25deg'},
-        {scale: 1, rotateX: '0deg', rotateY: '12deg'},
-      )
+      // .to('#home-bg', {
+      //   backgroundColor: '#FFCA58',
+      //   duration: 3,
+      // })
+
+      .fromTo('.book', {scale: 0.7, rotateX: '3deg', rotateY: '-25deg'}, {scale: 1, rotateX: '0deg', rotateY: '12deg'})
       .to('.desc', {
         opacity: 1,
         ease: 'power1.out',
@@ -80,9 +81,10 @@
   class="relative"
 >
   <MemeToDNA />
+  <div class="h-36" />
   <div
     bind:this={container}
-    class="text-yellow-700 w-[80%] mx-auto h-screen flex gap-24 justify-center items-center pb-12"
+    class="text-[#768C3A] w-[80%] mx-auto h-screen flex gap-24 justify-center items-center pb-12"
   >
     <div class="relative z-10">
       <Book image={Gene} />
@@ -98,9 +100,9 @@
       </div>
     </div>
 
-    <div class=" text-yellow-900 font-georgia flex flex-col items-end max-w-xl">
+    <div class=" text-[#768C3A] font-georgia flex flex-col items-end max-w-xl">
       <Title
-        className="title"
+        className="title text-[#768C3A5a]"
         text="The Selfish Gene"
       />
       <p class="quote text-lg break-all leading-relaxed mb-4">
