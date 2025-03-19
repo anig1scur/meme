@@ -10,13 +10,15 @@
   let circleSize = 0;
   onMount(() => {
     if (!triggerElement) return;
+
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: triggerElement,
-        start: 'bottom bottom',
+        start: '60% bottom',
         end: `+=${duration * 50}%`,
         scrub: true,
-        // pin: true,
+        // pin: triggerElement,
+        // markers: true,
         toggleActions: 'play none none reverse',
         onUpdate: (self) => {
           // Update the circle size based on scroll progress
