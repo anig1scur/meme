@@ -22,6 +22,7 @@ module.exports = {
       routedgothic: ['RoutedGothic',],
       icon: ['Icon', 'serif'],
       georgia: ['Georgia', 'serif'],
+      vcr: ['vcr'],
     }
   }
 }

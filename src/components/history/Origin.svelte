@@ -3,10 +3,10 @@
   import gsap from 'gsap';
   import {ScrollTrigger} from 'gsap/ScrollTrigger';
   import Gene from '../../assets/imgs/the_selfish_gene.jpg';
-  import Line from './Line.svelte';
-  import Book from './Book.svelte';
-  import Title from './Title.svelte';
-  import MemeToDNA from '../animation/meme_to_DNA.svelte';
+  import Line from '../misc/Line.svelte';
+  import Book from '../misc/Book.svelte';
+  import Title from '../misc/Title.svelte';
+  import MemeToDNA from '../animation/MemeToDNA.svelte';
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -58,11 +58,6 @@
         ease: 'power1.out',
       });
 
-    // gsap.set( '#home-bg', {
-    //   delay:0,
-    //   background:"linear-gradient(to top, #FFF8EA 0%,#FFD16E 47%,#FFCA58 100%)",
-    //   // background:"linear-gradient(217deg, #FFCA58, #FFCA58 70.71%),  linear-gradient(127deg, #FFCA58, #FFCA58 70.71%), linear-gradient(336deg, #FFCA58, rgba(0,0,255,0) 70.71%)"
-    // })
     tl.fromTo(
       '.title',
       {translateX: 25, opacity: 0, y: 30, scale: 0.5},

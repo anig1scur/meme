@@ -24,7 +24,7 @@
       scrollTrigger: {
         trigger: svgContainer,
         start: 'top 30%',
-        end: 'bottom 50%',
+        end: 'bottom+=100% 50%',
         toggleActions: 'play none none reverse',
         scrub: true,
         pin: true,
@@ -34,11 +34,10 @@
 
     tl.to('#home-bg', {
       background: 'linear-gradient(to bottom, #F7FFF5, #D6EED0)',
-      duration: 2,
     })
-      .to('.path1', {rotate: -90, duration: 4, transformOrigin: 'center', translateX: '165%', translateY: '-74%'}, '=')
-      .to('.path2', {rotate: 90, duration: 4, transformOrigin: 'center', translateX: '-75%', translateY: '16%'}, '<')
-      .to('.path3, .path4', {opacity: 0, duration: 1.8}, '<')
+      .to('.path1', {rotate: -90,transformOrigin: 'center', translateX: '165%', translateY: '-74%'}, '=')
+      .to('.path2', {rotate: 90,  transformOrigin: 'center', translateX: '-75%', translateY: '16%'}, '<')
+      .to('.path3, .path4', {opacity: 0, }, '<')
       .delay(3)
       .to('.meme', {opacity: 0, duration: 0.1})
       .fromTo(
@@ -48,7 +47,6 @@
         },
         {
           opacity: 1,
-          duration: 3,
           onUpdate: function () {
             const progress = this.progress();
             const currentPath = interpolator(progress);

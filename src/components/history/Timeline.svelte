@@ -1,5 +1,5 @@
 <script>
-  import TimelineScroller from './timelineScroller.svelte';
+  import TimelineScroller from './TimelineScroller.svelte';
   import {onMount} from 'svelte';
   import gsap from 'gsap';
   import {ScrollTrigger} from 'gsap/ScrollTrigger';

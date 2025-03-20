@@ -5,8 +5,10 @@
   import Origin from '../components/history/Origin.svelte';
   import CircleTransition from '../components/history/CircleTransition.svelte';
   import Intro from '../components/history/Intro.svelte';
+  import S90 from '../components/history/90s.svelte';
   import Timeline from '../components/history/Timeline.svelte';
-  import Ball from '../components/misc/ball.svelte';
+  import Ball from '../components/misc/Ball.svelte';
+  import DancingBaby from '../components/animation/DancingBaby.svelte';
 
   import gsap from 'gsap';
   import {onMount} from 'svelte';
@@ -57,16 +59,10 @@
       duration={10}
       color="white"
     >
-      TEST
+    <DancingBaby />
     </CircleTransition>
 
-    <section
-      id="early_internet_memes"
-      class="section"
-    >
-      <h2>2</h2>
-      <p>2...</p>
-    </section>
+    <S90 />
     <section
       id="rise_of_video_and_social_media_memes"
       class="section"

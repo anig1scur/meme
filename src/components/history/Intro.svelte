@@ -3,7 +3,7 @@
   import gsap from 'gsap';
   import {ScrollTrigger} from 'gsap/ScrollTrigger';
   import Title from '$assets/imgs/chronicle_of_meme.png';
-  import Grass from '../history/Grass.svelte';
+  import Grass from '../misc/Grass.svelte';
 
   gsap.registerPlugin(ScrollTrigger);
 
