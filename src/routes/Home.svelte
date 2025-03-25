@@ -7,7 +7,6 @@
   import Intro from '../components/history/Intro.svelte';
   import S90 from '../components/history/90s.svelte';
   import Timeline from '../components/history/Timeline.svelte';
-  import Ball from '../components/misc/Ball.svelte';
   import DancingBaby from '../components/animation/DancingBaby.svelte';
 
   import gsap from 'gsap';
@@ -41,7 +40,7 @@
   });
 </script>
 
-<Ball />
+<!-- <Ball /> -->
 
 <Header />
 <div class="font-routedgothic">

@@ -35,17 +35,17 @@
       .timeline({
         scrollTrigger: {
           trigger: '.book',
-          start: 'top 75%',
+          start: 'top bottom',
           end: 'top top',
           scrub: true,
-          // pin: true,
           // markers: true,
+          // pin: true,
         },
       })
       .to('.dna', {
-        scale: 1.8,
+        scale: 1.6,
         rotate: '30deg',
-        translateY: -30,
+        translateY: 300,
       })
       // .to('#home-bg', {
       //   backgroundColor: '#FFCA58',

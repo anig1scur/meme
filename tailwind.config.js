@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'cat': "url('./assets/imgs/cat.png')",
+      },
       animation: {
         'scale-bounce': 'scaleBounce 4s infinite',
       },

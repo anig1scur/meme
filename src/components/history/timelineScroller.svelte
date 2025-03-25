@@ -33,8 +33,9 @@
     timelineData.forEach((segment, index) => {
       const trigger = ScrollTrigger.create({
         trigger: `#${segment.id}`,
-        start: 'top top+=10',
-        end: 'bottom-=10 center',
+        start: 'top top-=500',
+        end: 'bottom top-=500',
+        // markers: true,
         scrub: true,
         onEnter: () => {
           activeSegment = segment.id;
@@ -71,7 +72,7 @@
 
 <div
   bind:this={scrollerRef}
-  class="z-50 fixed right-5 top-1/2 -translate-y-1/2 h-4/5 w-16 flex flex-col items-center translate-x-full opacity-0"
+  class="z-50 font-vcr text-zinc-600 fixed right-5 top-1/2 -translate-y-1/2 h-4/5 w-16 flex flex-col items-center translate-x-full opacity-0"
 >
   {#each timelineData as segment, index}
     <div
@@ -85,7 +86,7 @@
         on:click={() => handleSegmentClick(segment)}
       >
         <div
-          class={`w-3 h-3 rounded-full transition-all duration-300 ease-in-out border-[1px] border-black
+          class={`w-3 h-3 rounded transition-all duration-300 ease-in-out border-[1px] border-zinc-700
           ${segment.id !== activeSegment ? 'bg-[#85D6FF]' : 'bg-[#FE7B7B]'}
           `}
           style="transform: scale({segment.id === activeSegment ? 1.5 : 1})"
@@ -100,7 +101,7 @@
       {#if index < timelineData.length - 1}
         <div class="flex-1 w-full flex items-center justify-center">
           <div
-            class={`relative w-2 h-full rounded-full ${segment.idx > activeIdx ? '' : 'bg-[#85D6FF]'} border-[1.5px] border-black overflow-hidden`}
+            class={`relative w-2 h-full rounded-md ${segment.idx > activeIdx ? '' : 'bg-[#85D6FF]'} border-[1.5px] border-zinc-600 overflow-hidden`}
           >
             <div
               class={`absolute left-0 top-0 w-full ${segment.id === activeSegment ? 'bg-[#FE7B7B]' : 'opacity-0'} transition-all duration-300 ease-in-out`}
