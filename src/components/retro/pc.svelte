@@ -5,9 +5,9 @@
 
   let currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
   let isNotepadOpen = true;
-  let isSettingsOpen = true;
+  let isSettingsOpen = false;
   let isPlayerOpen = true;
-  let notepadContent = '';
+  let notepadContent = 'The 90s gave us some of the first viral memes, like Dancing Baby and Hampster Dance, spreading through emails and early websites. Despite slow internet, these simple, quirky animations became digital culture icons, paving the way for modern memes.';
   let isPlaying = false;
   let volume = 50;
 
@@ -92,7 +92,7 @@
     {#if isNotepadOpen}
       <div
         use:draggable
-        class="absolute cursor-pointer top-12 left-36 w-64 bg-white border border-gray-500 shadow-lg"
+        class="absolute cursor-pointer top-12 left-36 w-80 bg-white border border-gray-500 shadow-lg"
       >
         <div class="bg-gradient-to-r from-[#D12459] to-[#FFD0DE] text-white px-2 py-1 flex justify-between items-center">
           <span>Notepad</span>
@@ -102,7 +102,7 @@
           >
         </div>
         <textarea
-          class="w-full h-40 p-2 text-sm focus:outline-none resize-none border-b border-gray-300"
+          class="w-full h-48 p-2 text-sm focus:outline-none resize-none border-b border-gray-300"
           placeholder="What's on your mind?"
           bind:value={notepadContent}
         ></textarea>
@@ -233,7 +233,7 @@
     {/if}
   </div>
 
-  <div class="w-full h-6 bg-gray-800 px-4 flex items-center justify-between text-white text-xs">
+  <div class="w-full h-6 bg-zinc-500 px-4 flex items-center justify-between text-white text-xs">
     <div class="flex items-center space-x-4">
       <span>CPU: 2%</span>
       <span>RAM: 128MB</span>
