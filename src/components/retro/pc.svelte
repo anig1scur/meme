@@ -31,7 +31,7 @@
 </script>
 
 <div class="min-h-screen bg-zinc-100 flex flex-col w-screen font-vcr">
-  <div class="w-full h-8 bg-pink-500 flex justify-between items-center px-4 text-white">
+  <div class="w-full h-8 bg-gradient-to-r from-[#D12459] to-[#FFD0DE] flex justify-between items-center px-4 text-white">
     <div class="flex items-center space-x-2">
       <button class="p-3 rounded hover:bg-gray-500">MemeOS</button>
       <button class="p-3 rounded hover:bg-gray-500">File</button>
@@ -94,7 +94,7 @@
         use:draggable
         class="absolute cursor-pointer top-12 left-36 w-64 bg-white border border-gray-500 shadow-lg"
       >
-        <div class="bg-pink-500 text-white px-2 py-1 flex justify-between items-center">
+        <div class="bg-gradient-to-r from-[#D12459] to-[#FFD0DE] text-white px-2 py-1 flex justify-between items-center">
           <span>Notepad</span>
           <button
             class="px-1 hover:bg-pink-600"
@@ -118,7 +118,7 @@
         use:draggable
         class="absolute cursor-pointer top-72 left-96 w-72 bg-white border border-gray-500 shadow-lg"
       >
-        <div class="bg-pink-500 text-white px-2 py-1 flex justify-between items-center">
+        <div class="bg-gradient-to-r from-[#D12459] to-[#FFD0DE] text-white px-2 py-1 flex justify-between items-center">
           <span>Settings</span>
           <button
             class="px-1 hover:bg-pink-600"
@@ -176,7 +176,7 @@
         use:draggable
         class="absolute cursor-pointer top-[50%] left-32 w-64 bg-white border border-gray-500 shadow-lg"
       >
-        <div class="bg-pink-500 text-white px-2 py-1 flex justify-between items-center">
+        <div class="bg-gradient-to-r from-[#D12459] to-[#FFD0DE] text-white px-2 py-1 flex justify-between items-center">
           <span>Meme Player</span>
           <button
             class="px-1 hover:bg-pink-600"
@@ -208,7 +208,7 @@
           <div class="mb-2">
             <div class="relative h-1 w-full bg-gray-200 rounded-full">
               <div
-                class="absolute top-0 left-0 h-1 bg-pink-500 rounded-full"
+                class="absolute top-0 left-0 h-1 bg-gradient-to-r from-[#D12459] to-[#FFD0DE] rounded-full"
                 style="width: 35%"
               ></div>
             </div>
@@ -239,7 +239,7 @@
       <span>RAM: 128MB</span>
     </div>
     <div class="flex items-center space-x-3">
-      <button class="px-1 py-0.5 bg-pink-500 rounded text-xs">wifi</button>
+      <button class="px-1 py-0.5 bg-gradient-to-r from-[#D12459] to-[#FFD0DE] rounded text-xs">wifi</button>
       <button class="px-1 py-0.5 bg-gray-700 rounded text-xs">vol</button>
       <button class="px-1 py-0.5 bg-gray-700 rounded text-xs">bat</button>
     </div>
