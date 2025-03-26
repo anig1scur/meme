@@ -7,7 +7,7 @@
   import Intro from '../components/history/Intro.svelte';
   import S90 from '../components/history/90s.svelte';
   import Timeline from '../components/history/Timeline.svelte';
-  import DancingBaby from '../components/animation/DancingBaby.svelte';
+  import Pc from '../components/retro/pc.svelte';
 
   import gsap from 'gsap';
   import {onMount} from 'svelte';
@@ -58,7 +58,7 @@
       duration={10}
       color="white"
     >
-    <DancingBaby />
+    <Pc />
     </CircleTransition>
 
     <S90 />

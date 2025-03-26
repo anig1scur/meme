@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'cat': "url('./assets/imgs/cat.png')",
+        'mail': "url('./assets/imgs/mail.svg')",
       },
       animation: {
         'scale-bounce': 'scaleBounce 4s infinite',

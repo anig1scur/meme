@@ -1,6 +1,7 @@
 <script>
   import {onMount} from 'svelte';
   import {draggable} from '@neodrag/svelte';
+  import DancingBaby from '../animation/DancingBaby.svelte';
 
   let currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
   let isNotepadOpen = true;
@@ -29,14 +30,14 @@
   }
 </script>
 
-<div class="min-h-screen bg-zinc-100 flex flex-col w-screen">
+<div class="min-h-screen bg-zinc-100 flex flex-col w-screen font-vcr">
   <!-- Taskbar -->
   <div class="w-full h-8 bg-pink-500 flex justify-between items-center px-4 text-white">
     <div class="flex items-center space-x-2">
-      <button class="px-2 py-1 rounded hover:bg-gray-700">MemeOS</button>
-      <button class="px-2 py-1 rounded hover:bg-gray-700">File</button>
-      <button class="px-2 py-1 rounded hover:bg-gray-700">Edit</button>
-      <button class="px-2 py-1 rounded hover:bg-gray-700">View</button>
+      <button class="p-3 rounded hover:bg-gray-500">MemeOS</button>
+      <button class="p-3 rounded hover:bg-gray-500">File</button>
+      <button class="p-3 rounded hover:bg-gray-500">Edit</button>
+      <button class="p-3 rounded hover:bg-gray-500">View</button>
     </div>
     <div>{currentTime}</div>
   </div>
@@ -246,6 +247,16 @@
       <button class="px-1 py-0.5 bg-pink-500 rounded text-xs">wifi</button>
       <button class="px-1 py-0.5 bg-gray-700 rounded text-xs">vol</button>
       <button class="px-1 py-0.5 bg-gray-700 rounded text-xs">bat</button>
+    </div>
+  </div>
+
+  <div
+    use:draggable
+    class="absolute text-[#8A2A47] cursor-pointer top-10 left-[33%] w-[600px] h-[430px] bg-mail bg-contain bg-no-repeat border shadow-lg"
+  >
+    <div class="relative flex p-4 items-center gap-2 justify-between top-[48%] bg-white m-2 border-2 border-[#E8D9D9]">
+      Kindly check the attached DANCING BABY!!
+      <DancingBaby />
     </div>
   </div>
 </div>

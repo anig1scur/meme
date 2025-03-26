@@ -1,7 +1,7 @@
 <script>
   import {onMount} from 'svelte';
-  export let bookWidth = 300;
-  export let bookHeight = 480;
+  export let bookWidth = 250;
+  export let bookHeight = 400;
   export let coverColor = '#5e995c';
   export let image = '';
   export let altText = 'Book cover';

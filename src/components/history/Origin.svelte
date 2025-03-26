@@ -77,7 +77,7 @@
   <div class="h-36" />
   <div
     bind:this={container}
-    class="text-[#768C3A] w-[80%] mx-auto h-screen flex gap-24 justify-center items-center pb-12"
+    class="text-[#768C3A] w-[70%] mx-auto h-screen flex gap-24 justify-center items-center pb-12"
   >
     <div class="relative z-10">
       <Book image={Gene} />
