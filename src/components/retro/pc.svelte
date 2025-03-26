@@ -31,7 +31,6 @@
 </script>
 
 <div class="min-h-screen bg-zinc-100 flex flex-col w-screen font-vcr">
-  <!-- Taskbar -->
   <div class="w-full h-8 bg-pink-500 flex justify-between items-center px-4 text-white">
     <div class="flex items-center space-x-2">
       <button class="p-3 rounded hover:bg-gray-500">MemeOS</button>
@@ -90,11 +89,10 @@
       </div>
     </div>
 
-    <!-- Notepad Window -->
     {#if isNotepadOpen}
       <div
         use:draggable
-        class="absolute cursor-pointer top-12 left-24 w-64 bg-white border border-gray-500 shadow-lg"
+        class="absolute cursor-pointer top-12 left-36 w-64 bg-white border border-gray-500 shadow-lg"
       >
         <div class="bg-pink-500 text-white px-2 py-1 flex justify-between items-center">
           <span>Notepad</span>
@@ -115,11 +113,10 @@
       </div>
     {/if}
 
-    <!-- Settings Window -->
     {#if isSettingsOpen}
       <div
         use:draggable
-        class="absolute cursor-pointer top-40 left-96 w-72 bg-white border border-gray-500 shadow-lg"
+        class="absolute cursor-pointer top-72 left-96 w-72 bg-white border border-gray-500 shadow-lg"
       >
         <div class="bg-pink-500 text-white px-2 py-1 flex justify-between items-center">
           <span>Settings</span>
@@ -174,11 +171,10 @@
       </div>
     {/if}
 
-    <!-- Music Player Window -->
     {#if isPlayerOpen}
       <div
         use:draggable
-        class="absolute cursor-pointer top-20 left-56 w-64 bg-white border border-gray-500 shadow-lg"
+        class="absolute cursor-pointer top-[50%] left-32 w-64 bg-white border border-gray-500 shadow-lg"
       >
         <div class="bg-pink-500 text-white px-2 py-1 flex justify-between items-center">
           <span>Meme Player</span>
@@ -237,7 +233,6 @@
     {/if}
   </div>
 
-  <!-- Status bar -->
   <div class="w-full h-6 bg-gray-800 px-4 flex items-center justify-between text-white text-xs">
     <div class="flex items-center space-x-4">
       <span>CPU: 2%</span>
@@ -252,10 +247,10 @@
 
   <div
     use:draggable
-    class="absolute text-[#8A2A47] cursor-pointer top-10 left-[33%] w-[600px] h-[430px] bg-mail bg-contain bg-no-repeat border shadow-lg"
+    class="absolute text-[#8A2A47] cursor-pointer top-32 left-[33%] w-[600px] h-[430px] bg-mail bg-contain bg-no-repeat border shadow-lg"
   >
     <div class="relative flex p-4 items-center gap-2 justify-between top-[48%] bg-white m-2 border-2 border-[#E8D9D9]">
-      Kindly check the attached DANCING BABY!!
+      Kindly check the attached DANCING BABY &nbsp; ->
       <DancingBaby />
     </div>
   </div>
