@@ -2,12 +2,14 @@
   import {onMount} from 'svelte';
   import {draggable} from '@neodrag/svelte';
   import DancingBaby from '../animation/DancingBaby.svelte';
+  import Hampster from './hampster.svelte';
 
   let currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
   let isNotepadOpen = true;
   let isSettingsOpen = false;
   let isPlayerOpen = true;
-  let notepadContent = 'The 90s gave us some of the first viral memes, like Dancing Baby and Hampster Dance, spreading through emails and early websites. Despite slow internet, these simple, quirky animations became digital culture icons, paving the way for modern memes.';
+  let notepadContent =
+    'The 90s gave us some of the first viral memes, like Dancing Baby and Hampster Dance, spreading through emails and early websites. Despite slow internet, these simple, quirky animations became digital culture icons, paving the way for modern memes.';
   let isPlaying = false;
   let volume = 50;
 
@@ -31,7 +33,9 @@
 </script>
 
 <div class="min-h-screen bg-zinc-100 flex flex-col w-screen font-vcr">
-  <div class="w-full h-8 bg-gradient-to-r from-[#D12459] to-[#FFD0DE] flex justify-between items-center px-4 text-white">
+  <div
+    class="w-full h-8 bg-gradient-to-r from-[#D12459] to-[#FFD0DE] flex justify-between items-center px-4 text-white"
+  >
     <div class="flex items-center space-x-2">
       <button class="p-3 rounded hover:bg-gray-500">MemeOS</button>
       <button class="p-3 rounded hover:bg-gray-500">File</button>
@@ -94,7 +98,9 @@
         use:draggable
         class="absolute cursor-pointer top-12 left-36 w-80 bg-white border border-gray-500 shadow-lg"
       >
-        <div class="bg-gradient-to-r from-[#D12459] to-[#FFD0DE] text-white px-2 py-1 flex justify-between items-center">
+        <div
+          class="bg-gradient-to-r from-[#D12459] to-[#FFD0DE] text-white px-2 py-1 flex justify-between items-center"
+        >
           <span>Notepad</span>
           <button
             class="px-1 hover:bg-pink-600"
@@ -118,7 +124,9 @@
         use:draggable
         class="absolute cursor-pointer top-72 left-96 w-72 bg-white border border-gray-500 shadow-lg"
       >
-        <div class="bg-gradient-to-r from-[#D12459] to-[#FFD0DE] text-white px-2 py-1 flex justify-between items-center">
+        <div
+          class="bg-gradient-to-r from-[#D12459] to-[#FFD0DE] text-white px-2 py-1 flex justify-between items-center"
+        >
           <span>Settings</span>
           <button
             class="px-1 hover:bg-pink-600"
@@ -171,12 +179,28 @@
       </div>
     {/if}
 
+    <div
+      use:draggable
+      class="absolute cursor-pointer top-[35%] left-[24%] w-96 bg-white border border-gray-500 shadow-lg"
+    >
+      <div class="bg-gradient-to-r from-[#D12459] to-[#FFD0DE] text-white px-2 py-1 flex justify-between items-center">
+        <span>Hampster Dance</span>
+        <button
+          class="px-1 hover:bg-pink-600"
+          on:click={() => alert('it just did nothing!')}>✕</button
+        >
+      </div>
+      <Hampster />
+    </div>
+
     {#if isPlayerOpen}
       <div
         use:draggable
         class="absolute cursor-pointer top-[50%] left-32 w-64 bg-white border border-gray-500 shadow-lg"
       >
-        <div class="bg-gradient-to-r from-[#D12459] to-[#FFD0DE] text-white px-2 py-1 flex justify-between items-center">
+        <div
+          class="bg-gradient-to-r from-[#D12459] to-[#FFD0DE] text-white px-2 py-1 flex justify-between items-center"
+        >
           <span>Meme Player</span>
           <button
             class="px-1 hover:bg-pink-600"
@@ -247,7 +271,7 @@
 
   <div
     use:draggable
-    class="absolute text-[#8A2A47] cursor-pointer top-32 left-[33%] w-[600px] h-[430px] bg-mail bg-contain bg-no-repeat border shadow-lg"
+    class="absolute text-[#8A2A47] cursor-pointer top-32 left-[48%] w-[600px] h-[430px] bg-mail bg-contain bg-no-repeat border shadow-lg"
   >
     <div class="relative flex p-4 items-center gap-2 justify-between top-[48%] bg-white m-2 border-2 border-[#E8D9D9]">
       Kindly check the attached DANCING BABY &nbsp; ->
