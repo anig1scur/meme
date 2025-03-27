@@ -260,7 +260,7 @@
   <div class="w-full h-6 bg-zinc-500 px-4 flex items-center justify-between text-white text-xs">
     <div class="flex items-center space-x-4">
       <span>CPU: 2%</span>
-      <span>RAM: 128MB</span>
+      <span>RAM: 128Mb</span>
     </div>
     <div class="flex items-center space-x-3">
       <button class="px-1 py-0.5 bg-gradient-to-r from-[#D12459] to-[#FFD0DE] rounded text-xs">wifi</button>

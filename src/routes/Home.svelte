@@ -4,6 +4,7 @@
 
   import Origin from '../components/history/Origin.svelte';
   import CircleTransition from '../components/history/CircleTransition.svelte';
+  import SlideTransition from '../components/history/SlideTransition.svelte';
   import Intro from '../components/history/Intro.svelte';
   import S90 from '../components/history/90s.svelte';
   import Timeline from '../components/history/Timeline.svelte';
@@ -58,10 +59,23 @@
       duration={10}
       color="white"
     >
-    <Pc />
+      <Pc />
     </CircleTransition>
 
     <S90 />
+    <SlideTransition
+      triggerElement={'#early_internet_memes'}
+      duration={5}
+      color="white"
+    >
+      <div class="flex flex-col items-center">
+        <h1 class="text-5xl font-bold mb-16">Millennium</h1>
+
+        <p>I JUST RUN OUT OF MY IMAGINATION</p>
+
+        <p>SO MISERABLE</p>
+      </div>
+    </SlideTransition>
     <section
       id="rise_of_video_and_social_media_memes"
       class="section"
@@ -69,7 +83,6 @@
       <h2>3</h2>
       <p>...</p>
     </section>
-
     <section
       id="meme_explosion_and_emojis"
       class="section"

@@ -13,7 +13,7 @@
       id: 'rise_of_video_and_social_media_memes',
       desc: 'Rise of Video & Social Media Memes',
       title: '2000',
-      position: 20,
+      position: 25,
     },
     {id: 'meme_explosion_and_emojis', desc: 'Meme Explosion & Emojis', title: '2010', position: 40},
     {id: 'short_form_video_meme_culture', desc: 'Short-Form Video Meme Culture', title: '2015', position: 60},

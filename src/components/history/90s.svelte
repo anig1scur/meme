@@ -4,7 +4,7 @@
 
 <section
   id="early_internet_memes"
-  class="h-[200vh] relative z-20"
+  class="min-h-[200vh] relative -z-10"
 >
   <h2>2</h2>
   <p>2...</p>
