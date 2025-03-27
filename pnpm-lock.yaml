@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@lucide/svelte':
+        specifier: ^0.484.0
+        version: 0.484.0(svelte@5.20.1)
       '@neodrag/svelte':
         specifier: ^2.3.2
         version: 2.3.2(svelte@5.20.1)
@@ -35,6 +38,9 @@ importers:
       layercake:
         specifier: ^8.4.2
         version: 8.4.2(svelte@5.20.1)(typescript@5.7.3)
+      lucide-svelte:
+        specifier: ^0.484.0
+        version: 0.484.0(svelte@5.20.1)
       sass:
         specifier: ^1.84.0
         version: 1.85.0
@@ -883,6 +889,11 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@lucide/svelte@0.484.0':
+    resolution: {integrity: sha512-yuHwfJxE1n3kOg/4hIsvAUrBv3Mood/8BCcugUyRhxyr4EJDtjHJiiCpjJmtnk1gqkCYAEREKoGPaSGilcjYKw==}
+    peerDependencies:
+      svelte: ^5
 
   '@neodrag/svelte@2.3.2':
     resolution: {integrity: sha512-1aPgnv2LqikkPEoTVgCPCqtXUXOD7OjCHLAIssTv0hkmyHLG9i697Cu+Tzco4/Q4KgOQXCDnLsa4Fvya5wXP9g==}
@@ -2125,6 +2136,11 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
+
+  lucide-svelte@0.484.0:
+    resolution: {integrity: sha512-QCPrcz+fqWP3jKtcWrzPemI1vcb/IgHNrwMbgm2YHgkmYH1V4L8wxGeEP3EGrLpC0Kiv4W0vN/haHLksg5bW7A==}
+    peerDependencies:
+      svelte: ^3 || ^4 || ^5.0.0-next.42
 
   maath@0.10.8:
     resolution: {integrity: sha512-tRvbDF0Pgqz+9XUa4jjfgAQ8/aPKmQdWXilFu2tMy4GWj4NOsx99HlULO4IeREfbO3a0sA145DZYyvXPkybm0g==}
@@ -3886,6 +3902,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
+  '@lucide/svelte@0.484.0(svelte@5.20.1)':
+    dependencies:
+      svelte: 5.20.1
+
   '@neodrag/svelte@2.3.2(svelte@5.20.1)':
     dependencies:
       svelte: 5.20.1
@@ -5220,6 +5240,10 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
+
+  lucide-svelte@0.484.0(svelte@5.20.1):
+    dependencies:
+      svelte: 5.20.1
 
   maath@0.10.8(@types/three@0.174.0)(three@0.174.0):
     dependencies:

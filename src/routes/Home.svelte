@@ -9,7 +9,7 @@
   import S90 from '../components/history/90s.svelte';
   import Timeline from '../components/history/Timeline.svelte';
   import Pc from '../components/retro/pc.svelte';
-
+  import Youtube from '../components/retro/youtube.svelte';
   import gsap from 'gsap';
   import {onMount} from 'svelte';
 
@@ -68,20 +68,19 @@
       duration={5}
       color="white"
     >
-      <div class="flex flex-col items-center">
-        <h1 class="text-5xl font-bold mb-16">Millennium</h1>
-
-        <p>I JUST RUN OUT OF MY IMAGINATION</p>
-
-        <p>SO MISERABLE</p>
-      </div>
+    <Youtube />
     </SlideTransition>
     <section
       id="rise_of_video_and_social_media_memes"
       class="section"
     >
-      <h2>3</h2>
-      <p>...</p>
+    <div class="flex flex-col items-center">
+      <h1 class="text-5xl font-bold mb-16">Millennium</h1>
+
+      <p>I RUN OUT OF MY IMAGINATION</p>
+
+      <p>SO MISERABLE</p>
+    </div>
     </section>
     <section
       id="meme_explosion_and_emojis"
