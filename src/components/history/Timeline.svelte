@@ -27,7 +27,7 @@
 
   onMount(() => {
     gsap.to(scroller, {
-      x: '-100%',
+      x: '-120%',
       duration: 0.8,
       opacity: 1,
       ease: 'power2.out',
