@@ -1,8 +1,28 @@
 <script>
   import {onMount} from 'svelte';
   import {ThumbsUp, ThumbsDown, Share2, Flag, Star} from 'lucide-svelte';
+  import RickRolled from '$assets/videos/RickRolled.mp4';
+  import RickPoster from '$assets/imgs/rick_roll_poster.png';
 
   let isPlaying = false;
+  let videoElement;
+
+  onMount(() => {
+    if (videoElement) {
+      videoElement.pause();
+    }
+  });
+
+  function togglePlay() {
+    if (videoElement) {
+      if (isPlaying) {
+        videoElement.pause();
+      } else {
+        videoElement.play();
+      }
+      isPlaying = !isPlaying;
+    }
+  }
 
   const relatedVideos = [
     {
@@ -40,35 +60,40 @@
 
 <div class="max-w-5xl mx-auto bg-white py-8 px-4 font-sans">
   <div class="flex gap-10">
-    <!-- Main Content -->
     <div class="flex-1">
-      <!-- Video Player Section -->
-      <div class="relative bg-black aspect-video mb-2 flex items-center justify-center">
-        {#if !isPlaying}
+      <div class="relative bg-black aspect-video mb-2 w-full overflow-hidden">
+        <video
+          bind:this={videoElement}
+          src={RickRolled}
+          poster={RickPoster}
+          class="absolute inset-0 w-full h-full object-cover"
+          on:click={togglePlay}
+        ></video>
+        <div
+          class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center pointer-events-none {isPlaying
+            ? 'hidden'
+            : ''}"
+        >
           <button
-            on:click={() => (isPlaying = true)}
-            class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+            on:click={togglePlay}
+            class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 pointer-events-auto"
           >
             Play
           </button>
-        {:else}
-          <div class="text-white text-sm">Video is playing...</div>
-        {/if}
-      </div>
-
-      <!-- Video Title & Stats -->
-      <div class="border-b pb-4 mb-2">
-        <h1 class="text-xl font-bold mb-2">Chocolate Rain - Original Song by Tay Zonday</h1>
-        <div class="flex items-center text-gray-600 text-sm">
-          <span>Added: April 22, 2007</span>
-          <span class="mx-2">|</span>
-          <span>From: TayZonday</span>
-          <span class="mx-2">|</span>
-          <span>Views: 1,234,567</span>
         </div>
       </div>
 
-      <!-- Rating Section -->
+      <div class="border-b pb-4 mb-2">
+        <h1 class="text-xl font-bold mb-2">Rick Astley - Never Gonna Give You Up</h1>
+        <div class="flex items-center text-gray-600 text-sm">
+          <span>Added: April 25, 2009</span>
+          <span class="mx-2">|</span>
+          <span>From: Rick Astley</span>
+          <span class="mx-2">|</span>
+          <span>Views: 1,234,567,890</span>
+        </div>
+      </div>
+
       <div class="flex items-center gap-4 mb-4 pb-2 border-b">
         <div class="flex items-center gap-2">
           <ThumbsUp class="w-4 h-4" />
@@ -92,16 +117,19 @@
         </button>
       </div>
 
-      <!-- Description -->
       <div class="bg-gray-50 px-4 py-2 rounded mb-2">
         <h2 class="font-bold mb-2">Description:</h2>
         <p class="text-xs text-gray-700">
-          A viral internet sensation that captured the spirit of early YouTube creativity
+          “Never Gonna Give You Up” was a global smash on its release in July 1987, topping the charts in 25 countries
+          including Rick's native UK and the US Billboard Hot 100. It also won the Brit Award for Best single in 1988.
+          Stock Aitken and Waterman wrote and produced the track which was the lead-off single and lead track from
+          Rick's debut LP “Whenever You Need Somebody”. The album was itself a UK number one and would go on to sell
+          over 15 million copies worldwide.
         </p>
         <div class="mt-4 text-xs text-gray-600">
           Category: Music
           <br />
-          Tags: viral video, internet meme, 2007
+          Tags: viral video, internet meme, 2009
         </div>
       </div>
 
