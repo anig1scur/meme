@@ -56,7 +56,7 @@
     <Origin />
     <CircleTransition
       triggerElement={'#the_selfish_gene'}
-      duration={10}
+      duration={5}
       color="white"
     >
       <Pc />

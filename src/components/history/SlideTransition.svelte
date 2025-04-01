@@ -17,9 +17,10 @@
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: triggerElement,
-        start: 'top bottom',
+        start: 'top bottom+=200%',
         end: `+=${duration * 50}%`,
         scrub: true,
+        // markers: true,
         toggleActions: 'play none none reverse',
         onUpdate: (self) => {
           // Update the rectangle width based on scroll progress

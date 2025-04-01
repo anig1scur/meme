@@ -25,7 +25,7 @@
           toggleActions: 'play none none reverse',
           onUpdate: (self) => {
             // Update the circle size based on scroll progress
-            circleSize = self.progress * 300;
+            circleSize = self.progress * 200;
             if (clipContainer) {
               clipContainer.style.clipPath = `circle(${circleSize}% at 0% 100%)`;
             }

@@ -38,12 +38,12 @@
   ];
 </script>
 
-<div class="max-w-6xl mx-auto bg-white p-4 font-sans">
-  <div class="flex gap-6">
+<div class="max-w-5xl mx-auto bg-white py-8 px-4 font-sans">
+  <div class="flex gap-10">
     <!-- Main Content -->
     <div class="flex-1">
       <!-- Video Player Section -->
-      <div class="relative bg-black aspect-video mb-4 flex items-center justify-center">
+      <div class="relative bg-black aspect-video mb-2 flex items-center justify-center">
         {#if !isPlaying}
           <button
             on:click={() => (isPlaying = true)}
@@ -57,7 +57,7 @@
       </div>
 
       <!-- Video Title & Stats -->
-      <div class="border-b pb-4 mb-4">
+      <div class="border-b pb-4 mb-2">
         <h1 class="text-xl font-bold mb-2">Chocolate Rain - Original Song by Tay Zonday</h1>
         <div class="flex items-center text-gray-600 text-sm">
           <span>Added: April 22, 2007</span>
@@ -69,7 +69,7 @@
       </div>
 
       <!-- Rating Section -->
-      <div class="flex items-center gap-4 mb-4 pb-4 border-b">
+      <div class="flex items-center gap-4 mb-4 pb-2 border-b">
         <div class="flex items-center gap-2">
           <ThumbsUp class="w-4 h-4" />
           <span class="text-sm">12,345</span>
@@ -93,15 +93,15 @@
       </div>
 
       <!-- Description -->
-      <div class="bg-gray-50 p-4 rounded mb-4">
+      <div class="bg-gray-50 px-4 py-2 rounded mb-2">
         <h2 class="font-bold mb-2">Description:</h2>
-        <p class="text-sm text-gray-700">
-          Chocolate Rain Some stay dry and others feel the pain Chocolate Rain A baby born will die before the sin
+        <p class="text-xs text-gray-700">
+          A viral internet sensation that captured the spirit of early YouTube creativity
         </p>
-        <div class="mt-4 text-sm text-gray-600">
+        <div class="mt-4 text-xs text-gray-600">
           Category: Music
           <br />
-          Tags: chocolate rain, tay zonday, original, music, viral
+          Tags: viral video, internet meme, 2007
         </div>
       </div>
 
@@ -113,10 +113,10 @@
           <div class="flex-grow">
             <div class="bg-gray-50 p-3 rounded">
               <p class="font-bold text-sm mb-1">User</p>
-              <p class="text-sm">This song will definitely become a classic!</p>
+              <p class="text-sm">This is epic internet history right here!</p>
             </div>
             <div class="text-xs text-gray-500 mt-1">2 hours ago</div>
-          </div>·
+          </div>
         </div>
       </div>
     </div>
