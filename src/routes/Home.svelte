@@ -10,6 +10,7 @@
   import Timeline from '../components/history/Timeline.svelte';
   import Pc from '../components/retro/pc.svelte';
   import Youtube from '../components/retro/youtube.svelte';
+  import AlignmentChart from '../components/AlignmentChart.svelte';
   import gsap from 'gsap';
   import {onMount} from 'svelte';
 
@@ -17,41 +18,47 @@
   gsap.registerPlugin(ScrollTrigger);
 
   onMount(() => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: '#history',
-          start: 'top bottom',
-          end: 'top top',
-          scrub: true,
-          // markers: true,
-        },
-      })
-      .to('.header', {
-        opacity: 0,
-        translateY: -60,
-      })
-      .to(
-        '#ball',
-        {
-          opacity: 1,
-        },
-        '>',
-      );
-  });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#alignment_trigger',
+        toggleActions: 'play none none reverse',
+      },
+    })
+    tl.to('.header', {
+      opacity: 0,
+      translateY: -60,
+    }).to("#home-bg", {
+      backgroundColor: "white"
+    })
+  })
 </script>
 
 <!-- <Ball /> -->
 
 <Header />
+
 <div class="font-routedgothic">
   <div
     id="home-bg"
     class="h-screen fixed top-0 bg-[#FFCA58] w-full"
   ></div>
-
-  <Intro />
   <Timeline />
+  <Intro />
+  <div class="h-[100vh] opacity-0" />
+  <div
+    id="alignment_trigger"
+    class="h-[120vh] opacity-0"
+  />
+
+  <SlideTransition
+    id="alignment_chart_wrapper"
+    triggerElement={'#alignment_trigger'}
+    duration={5}
+    color="white"
+  >
+    <AlignmentChart />
+  </SlideTransition>
+
   <div id="history">
     <Origin />
     <CircleTransition
@@ -64,23 +71,24 @@
 
     <S90 />
     <SlideTransition
+      id="youtube_wrapper"
       triggerElement={'#early_internet_memes'}
       duration={5}
       color="white"
     >
-    <Youtube />
+      <Youtube />
     </SlideTransition>
     <section
       id="rise_of_video_and_social_media_memes"
       class="section"
     >
-    <div class="flex flex-col items-center">
-      <h1 class="text-5xl font-bold mb-16">Millennium</h1>
+      <div class="flex flex-col items-center">
+        <h1 class="text-5xl font-bold mb-16">Millennium</h1>
 
-      <p>I RUN OUT OF MY IMAGINATION</p>
+        <p>I RUN OUT OF MY IMAGINATION</p>
 
-      <p>SO MISERABLE</p>
-    </div>
+        <p>SO MISERABLE</p>
+      </div>
     </section>
     <section
       id="meme_explosion_and_emojis"

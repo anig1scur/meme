@@ -20,6 +20,25 @@
 
     pathElement.setAttribute('d', startPath);
 
+    const tl_a = gsap.timeline({
+      scrollTrigger: {
+        trigger: svgContainer,
+        start: 'top bottom',
+        toggleActions: 'play none none reverse',
+      },
+    });
+    tl_a
+      .to('#alignment_chart_wrapper', {
+        opacity: 0,
+      })
+      .set(
+        '#home-bg',
+        {
+          background: 'linear-gradient(to bottom, #F7FFF5, #D6EED0)',
+        },
+        '<=',
+      );
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: svgContainer,
@@ -28,16 +47,14 @@
         toggleActions: 'play none none reverse',
         scrub: true,
         pin: true,
+        // markers: true,
         pinReparent: true,
       },
     });
 
-    tl.to('#home-bg', {
-      background: 'linear-gradient(to bottom, #F7FFF5, #D6EED0)',
-    })
-      .to('.path1', {rotate: -90,transformOrigin: 'center', translateX: '165%', translateY: '-74%'}, '=')
-      .to('.path2', {rotate: 90,  transformOrigin: 'center', translateX: '-75%', translateY: '16%'}, '<')
-      .to('.path3, .path4', {opacity: 0, }, '<')
+    tl.to('.path1', {rotate: -90, transformOrigin: 'center', translateX: '165%', translateY: '-74%'}, '=')
+      .to('.path2', {rotate: 90, transformOrigin: 'center', translateX: '-75%', translateY: '16%'}, '<')
+      .to('.path3, .path4', {opacity: 0}, '<')
       .delay(3)
       .to('.meme', {opacity: 0, duration: 0.1})
       .fromTo(

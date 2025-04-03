@@ -47,10 +47,6 @@
         rotate: '30deg',
         translateY: 300,
       })
-      // .to('#home-bg', {
-      //   backgroundColor: '#FFCA58',
-      //   duration: 3,
-      // })
 
       .fromTo('.book', {scale: 0.7, rotateX: '3deg', rotateY: '-25deg'}, {scale: 1, rotateX: '0deg', rotateY: '12deg'})
       .to('.desc', {

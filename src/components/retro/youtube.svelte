@@ -58,7 +58,7 @@
   ];
 </script>
 
-<div class="max-w-5xl mx-auto bg-white py-8 px-4 font-sans">
+<div class="max-w-4xl mx-auto bg-white py-8 px-4 font-sans">
   <div class="flex gap-10">
     <div class="flex-1">
       <div class="relative bg-black aspect-video mb-2 w-full overflow-hidden">
@@ -120,22 +120,16 @@
       <div class="bg-gray-50 px-4 py-2 rounded mb-2">
         <h2 class="font-bold mb-2">Description:</h2>
         <p class="text-xs text-gray-700">
-          “Never Gonna Give You Up” was a global smash on its release in July 1987, topping the charts in 25 countries
-          including Rick's native UK and the US Billboard Hot 100. It also won the Brit Award for Best single in 1988.
-          Stock Aitken and Waterman wrote and produced the track which was the lead-off single and lead track from
-          Rick's debut LP “Whenever You Need Somebody”. The album was itself a UK number one and would go on to sell
-          over 15 million copies worldwide.
+          “Never Gonna Give You Up” was a global hit in 1987, topping charts in 25 countries including the UK and US. Produced by Stock Aitken Waterman, it was the lead single from Rick Astley's debut album *Whenever You Need Somebody*, which sold over 15 million copies worldwide.
         </p>
         <div class="mt-4 text-xs text-gray-600">
-          Category: Music
-          <br />
           Tags: viral video, internet meme, 2009
         </div>
       </div>
 
       <!-- Comments Section -->
       <div>
-        <h2 class="font-bold mb-4">Comments & Responses</h2>
+        <h2 class="font-bold mb-4">Comments</h2>
         <div class="flex gap-4 mb-4">
           <div class="w-10 h-10 bg-gray-200 rounded-full flex-shrink-0"></div>
           <div class="flex-grow">

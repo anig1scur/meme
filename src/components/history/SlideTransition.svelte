@@ -7,6 +7,7 @@
   export let triggerElement;
   export let duration = 10;
   export let color = '#3498db';
+  export let id;
   let clipContainer;
   let container;
 
@@ -20,6 +21,7 @@
         start: 'top bottom+=200%',
         end: `+=${duration * 50}%`,
         scrub: true,
+        // pin: true,
         // markers: true,
         toggleActions: 'play none none reverse',
         onUpdate: (self) => {
@@ -40,7 +42,7 @@
   });
 </script>
 
-<div class="wrapper" bind:this={container}>
+<div class="wrapper" id={id} bind:this={container}>
   <div
     bind:this={clipContainer}
     class="clip-container"
@@ -58,6 +60,7 @@
     top: 0;
     width: 100vw;
     height: 100vh;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
