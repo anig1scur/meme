@@ -20,6 +20,10 @@
   onMount(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
+        start: 'top bottom+=60%',
+        end: '+=600',
+        scrub: true,
+        // markers: true,
         trigger: '#alignment_trigger',
         toggleActions: 'play none none reverse',
       },
