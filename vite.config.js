@@ -5,7 +5,7 @@ import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-  base: "/",
+  base: "/meme/",
   plugins: [
     svelte(),
     VitePWA({
@@ -18,7 +18,7 @@ export default defineConfig({
       manifest: {
         "name": "woai.meme",
         "description": "meme lover",
-        "start_url": "./",
+        "start_url": "/meme/",
         "theme_color": "#000000",
         "background_color": "#000000",
         "display": "standalone"

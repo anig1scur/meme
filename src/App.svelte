@@ -20,7 +20,7 @@
   {/if}
 </svelte:head>
 
-<Router {url}>
+<Router {url} basepath="/meme">
   <main class="select-none">
     <Route
       path="/"
@@ -35,7 +35,7 @@
       component={Random}
     />
     <Route
-      path="/meme"
+      path="/mimimi"
       component={Meme}
     />
     <Route

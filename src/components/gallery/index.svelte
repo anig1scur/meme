@@ -169,7 +169,7 @@
   onMount(async () => {
     setupIntersectionObserver();
 
-    const response = await fetch('/meme_details.json');
+    const response = await fetch('./meme_details.json');
     memeData = await response.json();
 
     loadMoreMemes();

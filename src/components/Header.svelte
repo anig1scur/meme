@@ -6,18 +6,19 @@
   let clientWidth;
   let isAnimating = false;
   let location = useLocation();
-  let {pathname} = $location;
+  $: ({pathname} = $location);
 
   const scaleSpring = spring(1, {
     stiffness: 0.2,
     damping: 0.8,
   });
 
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   const navItems = [
-    {path: '/', label: 'Meme'},
-    {path: '/gallery', label: 'Gallery'},
-    {path: '/random', label: 'Random'},
-    {path: '/visualization', label: 'Visualization'},
+    {path: `${base}/`, label: 'Meme'},
+    {path: `${base}/gallery`, label: 'Gallery'},
+    {path: `${base}/random`, label: 'Random'},
+    {path: `${base}/visualization`, label: 'Visualization'},
   ];
 
   async function handleNavigation(newPath) {
